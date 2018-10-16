@@ -18,7 +18,16 @@
         <activity
             android:name=".Main_screen"
             android:exported="true" />
-        <activity android:name=".Sign_Up" android:exported="true"></activity>
+        <activity
+            android:name=".Sign_Up"
+            android:exported="true" />
+        <activity
+            android:name=".ForgotPassword"
+            android:exported="true" />
+        <activity
+            android:name=".Todays_Weather"
+            android:exported="true" />
+        <activity android:name=".Add_Crops_Seeds" android:exported="true" ></activity>
     </application>
 
 </manifest>
