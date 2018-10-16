@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Plant_Information">
+
+    <TextView
+        android:id="@+id/lblWeeklyRainfall"
+        android:layout_width="168dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        android:alpha="0.3"
+        android:text="Information"
+        android:textSize="15pt" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="421dp"
+        android:layout_height="187dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:adjustViewBounds="true"
+        android:alpha="0.5"
+        android:scaleType="fitXY"
+        android:src="@mipmap/cloudsmin" />
+
+    <TextView
+        android:id="@+id/lblSeason"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="268dp"
+        android:layout_marginEnd="112dp"
+        android:layout_marginBottom="8dp"
+        android:text="Date Planted"
+        android:textSize="9pt"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/lblRainfall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="268dp"
+        android:layout_marginEnd="44dp"
+        android:text="Rainfall:"
+        android:textSize="9pt" />
+
+    <TextView
+        android:id="@+id/lblSeason"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="320dp"
+        android:layout_marginEnd="8dp"
+        android:text="Age"
+        android:textSize="9pt"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/lblRainfall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="320dp"
+        android:layout_marginEnd="44dp"
+        android:text="Rainfall:"
+        android:textSize="9pt"/>
+
+    <TextView
+        android:id="@+id/lblSeason"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="376dp"
+        android:layout_marginEnd="8dp"
+        android:text="Estimated Harvest"
+        android:textSize="9pt"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/lblRainfall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="376dp"
+        android:layout_marginEnd="44dp"
+        android:text="Rainfall:"
+        android:textSize="9pt" />
+
+    <TextView
+        android:id="@+id/lblSeason"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="Water Requirement"
+        android:textSize="9pt"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteY="428dp" />
+
+    <TextView
+        android:id="@+id/lblRainfall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="428dp"
+        android:layout_marginEnd="44dp"
+        android:text="Rainfall:"
+        android:textSize="9pt"/>
+
+    <TextView
+        android:id="@+id/lblSeason"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="476dp"
+        android:layout_marginEnd="8dp"
+        android:text="Preferable Season"
+        android:textSize="9pt"
+        android:textStyle="bold"
+         />
+
+    <TextView
+        android:id="@+id/lblRainfall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rainfall:"
+        android:textSize="9pt"
+        tools:layout_editor_absoluteX="284dp"
+        tools:layout_editor_absoluteY="478dp" />
+
+</android.support.constraint.ConstraintLayout>
