@@ -24,8 +24,8 @@ public class Login extends AppCompatActivity{
     public String URL = "http://erain.ddns.net:8080/signin.php";
     JSONObject jsonObject;
 
-    //Create an on click listener for btnForgotPassowrd
-    private View.OnClickListener OnForgotPassowrdtClickListener = new View.OnClickListener() {
+    //Create an on click listener for btnForgotPassword
+    private View.OnClickListener OnForgotPasswordClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             btnForgotPassowrdClicked();
@@ -62,7 +62,7 @@ public class Login extends AppCompatActivity{
 
         btnSignIn.setOnClickListener(OnSignInClickListener);
         btnNoAccount.setOnClickListener(OnNoAccountClickListener);
-        btnForgotPassword.setOnClickListener(OnForgotPassowrdtClickListener);
+        btnForgotPassword.setOnClickListener(OnForgotPasswordClickListener);
     }
 
     //On click event for btnForgotPasswor
