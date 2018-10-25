@@ -19,7 +19,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 
-public class Login extends AppCompatActivity{
+public class LoginActivity extends AppCompatActivity{
 
     public Button btnSignIn, btnNoAccount, btnForgotPassword;
     public EditText txtEmail, txtPassword;
@@ -69,14 +69,14 @@ public class Login extends AppCompatActivity{
 
     //On click event for btnForgotPasswor
     private void btnForgotPassowrdClicked(){
-        Intent intent = new Intent(Login.this, ForgotPassword.class);
-        Login.this.startActivity(intent);
+        Intent intent = new Intent(LoginActivity.this, ForgotPassword.class);
+        LoginActivity.this.startActivity(intent);
     }
 
     //On click event for btmNoAccount
     private void btnNoAccountClicked(){
-        Intent intent = new Intent(Login.this, Sign_Up.class);
-        Login.this.startActivity(intent);
+        Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
+        LoginActivity.this.startActivity(intent);
     }
 
     //On click event for btnSignIn

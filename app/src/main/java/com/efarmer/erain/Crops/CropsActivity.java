@@ -87,9 +87,9 @@ public class CropsActivity extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new FragmentSeeds(), "Seeds");
-        adapter.addFragment(new FragmentCrops(), "Crops");
-        adapter.addFragment(new FragmentStats(), "Stats");
+        adapter.addFragment(new Fragment(), "Plants");
+        adapter.addFragment(new Fragment(), "Crops");
+        adapter.addFragment(new Fragment(), "Stats");
         viewPager.setAdapter(adapter);
 
 

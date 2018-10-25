@@ -22,7 +22,7 @@ import com.efarmer.erain.Utills.MySingleton;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Sign_Up extends AppCompatActivity {
+public class SignupActivity extends AppCompatActivity {
 
     //Class variables
     public Button btnSignUp;

@@ -1,4 +1,4 @@
-package com.efarmer.erain;
+package com.efarmer.erain.Utills;
 
 class LatLng {
     double lat;

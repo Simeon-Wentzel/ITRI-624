@@ -69,7 +69,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
                 +")";
         db.execSQL(CREATE_USER_TABLE);
 
-        //Create Seed Table
+        //Create SeedInformation Table
         String CREATE_SEED_TABLE = "CREATE TABLE " + TABLE_SEED + "("
                 + KEY_S_ID + " INTEGER PRIMARY KEY,"+ KEY_S_NAME + " TEXT UNIQUE,"
                 + KEY_S_PREF_MONTH + " TEXT," + KEY_S_MIN_H2O + " INTEGER," + KEY_S_MAX_H2O + " INTEGER,"
@@ -211,7 +211,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
         return u_cursor.getCount();
     }
 
-    //Add Seed Method
+    //Add SeedInformation Method
     public void addSeed(Seed seed) {
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -232,7 +232,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
         db.close();
     }
 
-    //Get Seed by seed ID method
+    //Get SeedInformation by seed ID method
     public Seed getSeed(int s_id) {
 
         SQLiteDatabase s_db = this.getReadableDatabase();
@@ -285,7 +285,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
         return seedList;
     }
 
-    //Update Seed by id method
+    //Update SeedInformation by id method
     public int updateSeed(Seed seed) {
         SQLiteDatabase s_db = this.getWritableDatabase();
 
@@ -304,7 +304,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
                 new String[]{String.valueOf(seed.getS_id())});
     }
 
-    //Delete Seed by id method
+    //Delete SeedInformation by id method
     public void deleteSeed(Seed seed) {
         SQLiteDatabase s_db = this.getWritableDatabase();
         s_db.delete(TABLE_SEED, KEY_S_ID + "=?",
@@ -312,7 +312,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
         s_db.close();
     }
 
-    //Seed Count method
+    //SeedInformation Count method
     public int getSeedCount() {
         String countQuery = "SELECT * FROM " + TABLE_SEED;
         SQLiteDatabase s_db = this.getReadableDatabase();
