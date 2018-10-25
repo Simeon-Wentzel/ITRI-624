@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/weather_drawer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Home.HomeActivity">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/relative_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:actionBarSize">
+            <include layout="@layout/top_toolbaar"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/current_weater_info"
+            android:background="@mipmap/sunset"
+            android:layout_width="match_parent"
+            android:layout_height="?android:actionBarSize"
+            android:layout_gravity="center"
+            android:layout_weight="0.5">
+
+            <TextView
+                android:id="@+id/txtPrecipitation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="98dp"
+                android:layout_marginTop="16dp"
+                android:text="Precipitation:    %"
+                android:textSize="30dp" />
+
+            <TextView
+                android:id="@+id/txtHumidity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="85dp"
+                android:text="Humidity:    %"
+                android:textSize="30dp" />
+
+            <TextView
+                android:id="@+id/txtWindspeed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="97dp"
+                android:layout_marginTop="160dp"
+                android:text="Windspeed:    km/h"
+                android:textSize="30dp" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="59dp"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                app:srcCompat="@mipmap/drop" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="48dp"
+                android:layout_height="52dp"
+                android:layout_below="@+id/imageView2"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="17dp"
+                app:srcCompat="@mipmap/humidity" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="wrap_content"
+                android:layout_height="62dp"
+                android:layout_alignBottom="@+id/imageView4"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="332dp"
+                android:layout_marginBottom="-83dp"
+                app:srcCompat="@mipmap/wind" />
+
+        </RelativeLayout>
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:layout_height="0dp">
+
+            <android.support.design.widget.TabLayout
+                android:id="@+id/weather_tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:tabGravity="fill"
+                app:tabSelectedTextColor="@color/cardview_shadow_start_color"
+                app:tabIndicatorColor="@color/colorPrimaryDark"
+                app:tabTextColor="#000"
+                app:tabBackground="@color/cardview_light_background"
+                app:tabMode="fixed" />
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/weather_viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/weather_tabs">
+            </android.support.v4.view.ViewPager>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/relative_bottom_navigatin_view"
+            android:layout_width="match_parent"
+            android:layout_height="?android:actionBarSize"
+            android:gravity="bottom">
+            <include layout="@layout/bottom_nav" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <include layout="@layout/top_nav_header"/>
+
+</android.support.v4.widget.DrawerLayout>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!-- "Mark Favorite", should appear as action button if possible -->
+    <item
+        android:id="@+id/navigation_profile"
+        android:title="My Profile"
+        android:icon="@drawable/ic_person_black_24dp"
+        android:checkableBehavior="single"
+        />
+    <item
+        android:id="@+id/navigation_edit_profle"
+        android:title="Edit Profile"
+        android:icon="@drawable/ic_edit_black_24dp"
+        android:checkableBehavior="single"
+        />
+
+</menu>

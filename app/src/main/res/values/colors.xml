@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574b</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="elephant_blue">#10303b</color>
+    <color name="nandor_green">#4a6054</color>
+    <color name="bitter_brown">#848681</color>
+    <color name="cotton_seed_beige">#c4bdb5</color>
+    <color name="iorn_grey">#e4e4e6</color>
 </resources>

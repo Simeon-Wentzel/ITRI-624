@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/crops_drawer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Crops.CropsActivity">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/relative_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:actionBarSize">
+            <include layout="@layout/top_toolbaar"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:layout_height="0dp">
+
+            <android.support.design.widget.TabLayout
+                android:id="@+id/crops_tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:tabGravity="fill"
+                app:tabSelectedTextColor="@color/colorPrimary"
+                app:tabIndicatorColor="@color/colorPrimaryDark"
+                app:tabTextColor="#000"
+                app:tabBackground="@color/cardview_light_background"
+                app:tabMode="fixed" />
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/crops_viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/crops_tabs">
+
+            </android.support.v4.view.ViewPager>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/relative_bottom_navigatin_view"
+            android:layout_width="match_parent"
+            android:layout_height="?android:actionBarSize"
+            android:gravity="bottom">
+            <include layout="@layout/bottom_nav" />
+        </RelativeLayout>
+
+    </LinearLayout>
+    <include layout="@layout/top_nav_header"/>
+</android.support.v4.widget.DrawerLayout>

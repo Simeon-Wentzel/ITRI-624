@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">eRain</string>
+    <string name="title_home">Home</string>
+    <string name="title_weather">Weather</string>
+    <string name="title_crops">Crops</string>
+    <string name="Open">eRain</string>
+    <string name="Close">eRain</string>
+    <string name="Seed">Seed</string>
+    <string name="Stats">Stats</string>
 </resources>
