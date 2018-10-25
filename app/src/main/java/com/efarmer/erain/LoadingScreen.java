@@ -72,7 +72,7 @@ public class LoadingScreen extends AppCompatActivity {
     /*
         //reading and displaying all contacts from list
         List<User> user = db.getAllUsers();
-        List<Seed> seed = db.getAllSeeds();
+        List<SeedInformation> seed = db.getAllSeeds();
         List<Planted> planted = db.getAllPlanted();
         List<Weather> weather = db.getAllWeatherEntries();
 
@@ -85,10 +85,10 @@ public class LoadingScreen extends AppCompatActivity {
 
         textViewUser.setText(u_text);
 
-        for(Seed s : seed)
+        for(SeedInformation s : seed)
         {
-            String s_log = "Seed ID: " + s.getS_id() + ", Seed Name: " + s.getS_name() + ", Proffered Months: " + s.getS_PrefMonth()
-                    + ", Min H2o Requirements: " + s.getS_minH2oReq() + ", Max H2o Requirements: " + s.getS_maxH2oReq() + ", Weekly H20 for Seed"
+            String s_log = "SeedInformation ID: " + s.getS_id() + ", SeedInformation Name: " + s.getS_name() + ", Proffered Months: " + s.getS_PrefMonth()
+                    + ", Min H2o Requirements: " + s.getS_minH2oReq() + ", Max H2o Requirements: " + s.getS_maxH2oReq() + ", Weekly H20 for SeedInformation"
                     + s.getS_weeklyH2oSeed() + ", Weekly H2o for Crop" + s.getS_weeklyH2oCrop() + ", Min Estimated Sprout Days"
                     + s.getS_etaSproutMin() + ", Max Estimated Sprout Days" + s.getS_etaSproutMax() + ", Min Days to Harvest Time"
                     + s.getS_ethMin() + ", Max Days to Harvest Time" + s.getS_ethMax()
