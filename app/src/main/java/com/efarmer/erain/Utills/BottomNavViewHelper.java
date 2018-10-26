@@ -6,7 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.view.MenuItem;
 
-import com.efarmer.erain.Crops.CropsActivity;
+import com.efarmer.erain.CropsPackage.CropsActivity;
 import com.efarmer.erain.Home.HomeActivity;
 import com.efarmer.erain.R;
 import com.efarmer.erain.WeatherPackage.WeatherActivity;

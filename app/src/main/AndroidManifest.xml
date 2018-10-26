@@ -27,12 +27,17 @@
             android:label="@string/title_weather">
         </activity>
         <activity
-            android:name=".Crops.CropsActivity"
+            android:name=".CropsPackage.CropsActivity"
             android:label="@string/title_crops">
         </activity>
         <activity
-            android:name=".Profile.ProfileActivity"
-            android:label="@string/title_crops">
+            android:name=".Profile.ProfileActivity">
+        </activity>
+        <activity
+            android:name=".Profile.LoginActivity">
+        </activity>
+        <activity
+            android:name=".Profile.EditActivity">
         </activity>
     </application>
 

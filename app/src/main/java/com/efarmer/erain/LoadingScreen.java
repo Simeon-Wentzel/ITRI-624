@@ -6,21 +6,25 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
+import java.util.List;
 
 import com.efarmer.erain.Home.HomeActivity;
+import com.efarmer.erain.Profile.LoginActivity;
 
 
 public class LoadingScreen extends AppCompatActivity {
 
     //Declare Variables
-   /* TextView textViewUser;
-    TextView textViewSeed;
-    TextView textViewPlanted;
+    //TextView textViewUser;
+    /*
+    TextView textViewPlants;
+    TextView textViewCrops;
     TextView textViewWeather;
-
-    String u_text = "";
-    String s_text = "";
+*/
+    //String u_text = "";
+    /*
     String p_text = "";
+    String c_text = "";
     String w_text = "";*/
 
     @Override
@@ -33,82 +37,84 @@ public class LoadingScreen extends AppCompatActivity {
 
         DatabaseHelper db = new DatabaseHelper(this);
 
-        //inserting users
-        db.addUser(new User("Faan", "Daniel", "fanie@gmail.com", "f1234"));
-        db.addUser(new User("Jan", "Jansen", "jannaman3@gmail.com", "opmt"));
-        db.addUser(new User("Sarel", "Burger", "sburger@gmail.com", "85246dfr"));
-        db.addUser(new User("Piet", "Retief", "petrus9@gmail.com", "31 P%l"));
+        //insert Users
+        db.addUser(new User("sysadmin", "sysadmin", "sysadmin@gmail.com", "1234", "Potchefstroom", "Bult", "NW"));
 
-        //inserting seeds
-        db.addSeed(new Seed("Corn", "Aug-Nov", 381, 610, 50, 50, 10, 14, 77, 98));
-        db.addSeed(new Seed("Onions", "Sept-Nov", 550, 600, 25, 25, 7, 10, 100, 175));
-        db.addSeed(new Seed("Potatoes", "Jan-Mar & Sept-Oct", 500, 700, 36, 36, 14, 28, 105, 140));
-        db.addSeed(new Seed("Tomatoes", "Nov-Jan", 225, 450, 50, 50, 5, 10, 60, 70));
-        db.addSeed(new Seed("Sunflowers", "Sept-Apr", 750, 870, 53, 53, 7, 10, 80, 120));
-        db.addSeed(new Seed("Wheat", "Feb-Mar", 460, 600, 42, 42, 7, 14, 70, 99));
-        db.addSeed(new Seed("Carrots", "Sept-Apr", 132, 275, 5, 25, 14, 21, 70, 80));
-        db.addSeed(new Seed("Pumpkin", "Sept-Nov", 450, 670, 35, 35, 5, 10, 105, 140));
-        db.addSeed(new Seed("Strawberries", "Nov-Dec", 200, 300, 38, 38, 14, 21, 42, 61));
 
-        //inserting planted
-        db.addPlant(new Planted("Corn", "30", "20", "2018-09-04", "7"));
-        db.addPlant(new Planted("Beet", "38", "21", "2012-09-04", "123"));
+        //insert Plants
+       /* db.addPlant(new Plants("Corn", "Aug-Nov", 381, 610, 50, 50, 10, 14, 77, 98));
+        db.addPlant(new Plants("Onions", "Sept-Nov", 550, 600, 25, 25, 7, 10, 100, 175));
+        db.addPlant(new Plants("Potatoes", "Jan-Mar & Sept-Oct", 500, 700, 36, 36, 14, 28, 105, 140));
+        db.addPlant(new Plants("Tomatoes", "Nov-Jan", 225, 450, 50, 50, 5, 10, 60, 70));
+        db.addPlant(new Plants("Sunflowers", "Sept-Apr", 750, 870, 53, 53, 7, 10, 80, 120));
+        db.addPlant(new Plants("Wheat", "Feb-Mar", 460, 600, 42, 42, 7, 14, 70, 99));
+        db.addPlant(new Plants("Carrots", "Sept-Apr", 132, 275, 5, 25, 14, 21, 70, 80));
+        db.addPlant(new Plants("Pumpkin", "Sept-Nov", 450, 670, 35, 35, 5, 10, 105, 140));
+        db.addPlant(new Plants("Strawberries", "Nov-Dec", 200, 300, 38, 38, 14, 21, 42, 61));*/
 
-        //inserting weather
-        //db.addWeather(new Weather("15", "20", "10", "25", "2018-12-18"));
 
-        new Handler().postDelayed(new Runnable(){
+        //insert Crops
+       /* db.addCrop(new Crops("Corn", 30, 20, "2018-09-04", 7));
+
+        //insert weather
+        db.addWeather(new Weather("15", "20", "10", "25", "18/12/2018"));*/
+
+        new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 //Simulating a long running task
 
                 /* Create an Intent that will start the ProfileData-Activity. */
-                Intent intentHome = new Intent(LoadingScreen.this,HomeActivity.class);
+                Intent intentHome = new Intent(LoadingScreen.this, LoginActivity.class);
                 LoadingScreen.this.startActivity(intentHome);
                 LoadingScreen.this.finish();
             }
         }, 2500);
-    }
 
-    /*
+
         //reading and displaying all contacts from list
-        List<User> user = db.getAllUsers();
-        List<SeedInformation> seed = db.getAllSeeds();
-        List<Planted> planted = db.getAllPlanted();
-        List<Weather> weather = db.getAllWeatherEntries();
+        //List<User> user = db.getAllUsers();
+        //List<Plants> plants = db.getAllPlants();
+        //List<Crops> crops = db.getAllCrops();
+        //List<Weather> weather = db.getAllWeatherEntries();
 
-        for(User u : user)
-        {
-            String u_log = "User ID: " + u.getU_id() + ", Name: " + u.getU_name() + ", Last Name: " + u.getU_surname()
-                    + ", Email: " + u.getU_email() + ", Password: " + u.getU_password() + "\n";
+
+       /* for (User u : user) {
+            String u_log = "User ID: " + u.getU_id() + ", Name: " + u.getU_name() + ", Last Name: "
+                    + u.getU_surname() + ", Email: " + u.getU_email() + ", Password: " + u.getU_password()
+                    + ", City: " + u.getU_city() + ", Suburb: " + u.getU_suburb() + ", Province: " + u.getU_province()
+                    + "\n";
+
             u_text = u_text + u_log;
         }
 
-        textViewUser.setText(u_text);
+        textViewUser.setText(u_text);*/
 
-        for(SeedInformation s : seed)
+        /*
+
+        for(Plants p : plants)
         {
-            String s_log = "SeedInformation ID: " + s.getS_id() + ", SeedInformation Name: " + s.getS_name() + ", Proffered Months: " + s.getS_PrefMonth()
-                    + ", Min H2o Requirements: " + s.getS_minH2oReq() + ", Max H2o Requirements: " + s.getS_maxH2oReq() + ", Weekly H20 for SeedInformation"
-                    + s.getS_weeklyH2oSeed() + ", Weekly H2o for Crop" + s.getS_weeklyH2oCrop() + ", Min Estimated Sprout Days"
-                    + s.getS_etaSproutMin() + ", Max Estimated Sprout Days" + s.getS_etaSproutMax() + ", Min Days to Harvest Time"
-                    + s.getS_ethMin() + ", Max Days to Harvest Time" + s.getS_ethMax()
+            String p_log = "SeedInformation ID: " + p.getP_id() + ", SeedInformation Name: " + p.getP_name() + ", Proffered Months: " + p.getP_PrefMonth()
+                    + ", Min H2o Requirements: " + p.getP_minH2oReq() + ", Max H2o Requirements: " + p.getP_maxH2oReq() + ", Weekly H20 for SeedInformation"
+                    + p.getP_weeklyH2oSeed() + ", Weekly H2o for Crop" + p.getP_weeklyH2oCrop() + ", Min Estimated Sprout Days"
+                    + p.getP_etaSproutMin() + ", Max Estimated Sprout Days" + p.getP_etaSproutMax() + ", Min Days to Harvest Time"
+                    + p.getP_ethMin() + ", Max Days to Harvest Time" + p.getP_ethMax()
                     + "\n";
-            s_text = s_text + s_log;
+            p_text = p_text + p_log;
         }
 
-        textViewSeed.setText(s_text);
+        textViewPlants.setText(p_text);
 
-        for(Planted p : planted)
+        for(Crops c : crops)
         {
-            String p_log = "Planted ID: " + p.getP_id() + ", Planted: " + p.getP_name() + ", Expected Weekly Rain: " + p.getP_ExpectedWeeklyRain()
-                    + ", Weekly H2o Top Up Requirements: " + p.getP_weeklyH2oTopUpReq() + ", Date Planted: " + p.getP_plantDate() + ", " + p.getP_name() + " Age in Days"
-                    + p.getP_daysOld()
+            String c_log = "Crops ID: " + c.getC_id() + ", Crops: " + c.getC_name() + ", Expected Weekly Rain: " + c.getC_ExpectedWeeklyRain()
+                    + ", Weekly H2o Top Up Requirements: " + c.getC_weeklyH2oTopUpReq() + ", Date Planted: " + c.getC_plantDate() + ", " + c.getC_name() + " Age in Days"
+                    + c.getC_daysOld()
                     + "\n";
-            s_text = s_text + p_log;
+            c_text = c_text + c_log;
         }
 
-        textViewPlanted.setText(p_text);
+        textViewCrops.setText(c_text);
 
         for(Weather w : weather)
         {
@@ -119,5 +125,6 @@ public class LoadingScreen extends AppCompatActivity {
         }
 
         textViewWeather.setText(w_text);*/
+    }
 
 }

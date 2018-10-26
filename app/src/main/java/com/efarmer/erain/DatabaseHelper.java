@@ -21,29 +21,32 @@ public class DatabaseHelper extends SQLiteOpenHelper
     private static String KEY_SURNAME = "u_surname";
     private static String KEY_EMAIL = "u_email";
     private static String KEY_PASSWORD = "u_password";
+    private static String KEY_CITY = "u_city";
+    private static String KEY_SUBURB = "u_suburb";
+    private static String KEY_PROVINCE = "u_province";
 
-    //SEED
-    private static String TABLE_SEED = "seed";
-    private static String KEY_S_ID = "s_id";
-    private static String KEY_S_NAME = "s_name";
-    private static String KEY_S_PREF_MONTH = "s_preferable_months_of_season";
-    private static String KEY_S_MIN_H2O = "s_h2o_min_req";
-    private static String KEY_S_MAX_H2O = "s_h2o_max_req";
-    private static String KEY_S_H2O_W_SEED = "s_weekly_h2o_seed";
-    private static String KEY_S_H2O_W_CROP = "s_weekly_h2o_crop";
-    private static String KEY_S_MIN_ETA_SPROUT = "s_eta_sprout_min";
-    private static String KEY_S_MAX_ETA_SPROUT = "s_eta_sprout_max";
-    private static String KEY_S_MIN_ETH = "s_eth_min";
-    private static String KEY_S_MAX_ETH = "s_eth_max";
-
-    //PLANTED
-    private static String TABLE_PLANTED = "planted";
+    //PLANTS
+    private static String TABLE_PLANTS = "plants";
     private static String KEY_P_ID = "p_id";
     private static String KEY_P_NAME = "p_name";
-    private static String KEY_P_EXPECTED_WEEKLY_RAIN = "p_expected_weekly_rain";
-    private static String KEY_P_WEEKLY_H2O_TOP_UP = "p_weekly_h2o_top_up_req";
-    private static String KEY_P_PLANTED_DATE = "p_planted_date";
-    private static String KEY_P_DAYS_OLD = "p_days_old";
+    private static String KEY_P_PREF_MONTH = "p_preferable_months_of_season";
+    private static String KEY_P_MIN_H2O = "p_h2o_min_req";
+    private static String KEY_P_MAX_H2O = "p_h2o_max_req";
+    private static String KEY_P_H2O_W_SEED = "p_weekly_h2o_seed";
+    private static String KEY_P_H2O_W_CROP = "p_weekly_h2o_crop";
+    private static String KEY_P_MIN_ETA_SPROUT = "p_eta_sprout_min";
+    private static String KEY_P_MAX_ETA_SPROUT = "p_eta_sprout_max";
+    private static String KEY_P_MIN_ETH = "p_eth_min";
+    private static String KEY_P_MAX_ETH = "p_eth_max";
+
+    //CROPS
+    private static String TABLE_CROPS = "crops";
+    private static String KEY_C_ID = "c_id";
+    private static String KEY_C_NAME = "c_name";
+    private static String KEY_C_EXPECTED_WEEKLY_RAIN = "c_expected_weekly_rain";
+    private static String KEY_C_WEEKLY_H2O_TOP_UP = "c_weekly_h2o_top_up_req";
+    private static String KEY_C_PLANTED_DATE = "c_planted_date";
+    private static String KEY_C_DAYS_OLD = "c_days_old";
 
     //WEATHER
     private static String TABLE_WEATHER = "weather";
@@ -65,26 +68,27 @@ public class DatabaseHelper extends SQLiteOpenHelper
         //Create User Table
         String CREATE_USER_TABLE = "CREATE TABLE " + TABLE_USER + "("
                 + KEY_ID + " INTEGER PRIMARY KEY,"+ KEY_NAME + " TEXT,"
-                + KEY_SURNAME + " TEXT," + KEY_EMAIL  + " TEXT UNIQUE," + KEY_PASSWORD + " TEXT"
+                + KEY_SURNAME + " TEXT," + KEY_EMAIL  + " TEXT UNIQUE," + KEY_PASSWORD + " TEXT,"
+                + KEY_CITY + " TEXT," + KEY_SUBURB  + " TEXT," + KEY_PROVINCE + " TEXT"
                 +")";
         db.execSQL(CREATE_USER_TABLE);
 
-        //Create SeedInformation Table
-        String CREATE_SEED_TABLE = "CREATE TABLE " + TABLE_SEED + "("
-                + KEY_S_ID + " INTEGER PRIMARY KEY,"+ KEY_S_NAME + " TEXT UNIQUE,"
-                + KEY_S_PREF_MONTH + " TEXT," + KEY_S_MIN_H2O + " INTEGER," + KEY_S_MAX_H2O + " INTEGER,"
-                + KEY_S_H2O_W_SEED + " INTEGER," + KEY_S_H2O_W_CROP + " INTEGER," +KEY_S_MIN_ETA_SPROUT + " INTEGER,"
-                + KEY_S_MAX_ETA_SPROUT + " INTEGER," + KEY_S_MIN_ETH + " INTEGER," +KEY_S_MAX_ETH + " INTEGER"
+        //Create Plants Table
+        String CREATE_PLANTS_TABLE = "CREATE TABLE " + TABLE_PLANTS + "("
+                + KEY_P_ID + " INTEGER PRIMARY KEY,"+ KEY_P_NAME + " TEXT UNIQUE,"
+                + KEY_P_PREF_MONTH + " TEXT," + KEY_P_MIN_H2O + " INTEGER," + KEY_P_MAX_H2O + " INTEGER,"
+                + KEY_P_H2O_W_SEED + " INTEGER," + KEY_P_H2O_W_CROP + " INTEGER," +KEY_P_MIN_ETA_SPROUT + " INTEGER,"
+                + KEY_P_MAX_ETA_SPROUT + " INTEGER," + KEY_P_MIN_ETH + " INTEGER," +KEY_P_MAX_ETH + " INTEGER"
                 +")";
-        db.execSQL(CREATE_SEED_TABLE);
+        db.execSQL(CREATE_PLANTS_TABLE);
 
-        //Create Planted Table
-        String CREATE_PLANTED_TABLE = "CREATE TABLE " + TABLE_PLANTED + "("
-                + KEY_P_ID + " INTEGER PRIMARY KEY,"+ KEY_P_NAME + " TEXT,"
-                + KEY_P_EXPECTED_WEEKLY_RAIN + " INTEGER," + KEY_P_WEEKLY_H2O_TOP_UP + " INTEGER,"
-                + KEY_P_PLANTED_DATE + " TEXT," + KEY_P_DAYS_OLD + " INTEGER"
+        //Create Crops Table
+        String CREATE_CROPS_TABLE = "CREATE TABLE " + TABLE_CROPS + "("
+                + KEY_C_ID + " INTEGER PRIMARY KEY,"+ KEY_C_NAME + " TEXT,"
+                + KEY_C_EXPECTED_WEEKLY_RAIN + " INTEGER," + KEY_C_WEEKLY_H2O_TOP_UP + " INTEGER,"
+                + KEY_C_PLANTED_DATE + " TEXT," + KEY_C_DAYS_OLD + " INTEGER"
                 +")";
-        db.execSQL(CREATE_PLANTED_TABLE);
+        db.execSQL(CREATE_CROPS_TABLE);
 
         //Create Weather Table
         String CREATE_WEATHER_TABLE = "CREATE TABLE " + TABLE_WEATHER + "("
@@ -103,10 +107,10 @@ public class DatabaseHelper extends SQLiteOpenHelper
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_USER);
         onCreate(db);
 
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_SEED);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_PLANTS);
         onCreate(db);
 
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_PLANTED);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_CROPS);
         onCreate(db);
 
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_WEATHER);
@@ -124,6 +128,9 @@ public class DatabaseHelper extends SQLiteOpenHelper
         values.put(KEY_SURNAME, user.getU_surname());
         values.put(KEY_EMAIL, user.getU_email());
         values.put(KEY_PASSWORD, user.getU_password());
+        values.put(KEY_CITY, user.getU_city());
+        values.put(KEY_SUBURB, user.getU_suburb());
+        values.put(KEY_PROVINCE, user.getU_province());
 
         db.insert(TABLE_USER, null, values);
         db.close();
@@ -134,7 +141,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
 
         SQLiteDatabase db = this.getReadableDatabase();
 
-        Cursor u_cursor = db.query(TABLE_USER, new String[] {KEY_ID, KEY_NAME, KEY_SURNAME, KEY_EMAIL, KEY_PASSWORD},
+        Cursor u_cursor = db.query(TABLE_USER, new String[] {KEY_ID, KEY_NAME, KEY_SURNAME, KEY_EMAIL, KEY_PASSWORD, KEY_CITY, KEY_SUBURB, KEY_PROVINCE},
                 KEY_ID + "=?", new String[]{String.valueOf(u_id)}, null, null, null, null);
 
         if (u_cursor != null)
@@ -143,21 +150,58 @@ public class DatabaseHelper extends SQLiteOpenHelper
         }
 
         User user = new User(Integer.parseInt(u_cursor.getString(0)), u_cursor.getString(1),
-                u_cursor.getString(2), u_cursor.getString(3), u_cursor.getString(4));
+                u_cursor.getString(2), u_cursor.getString(3), u_cursor.getString(4),
+                u_cursor.getString(5), u_cursor.getString(6), u_cursor.getString(7));
 
         return user;
     }
 
+    //Get User by Email method
+    public User getUserByEmail(String u_email) {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor u_cursor = db.query(TABLE_USER, new String[] {KEY_ID, KEY_NAME, KEY_SURNAME, KEY_EMAIL, KEY_PASSWORD, KEY_CITY, KEY_SUBURB, KEY_PROVINCE},
+                KEY_EMAIL + "=?", new String[]{u_email}, null, null, null, "1");
+
+        if (u_cursor != null)
+        {
+            u_cursor.moveToFirst();
+        }
+
+        User user = new User(Integer.parseInt(u_cursor.getString(0)), u_cursor.getString(1),
+                u_cursor.getString(2), u_cursor.getString(3), u_cursor.getString(4),
+                u_cursor.getString(5), u_cursor.getString(6), u_cursor.getString(7));
+        u_cursor.close();
+        db.close();
+        return user;
+    }
+
+    //Check if email exists
+    public Boolean checkEmail(String email){
+        SQLiteDatabase db = this.getReadableDatabase();
+
+
+        Cursor cursor = db.query(true, TABLE_USER,
+                new String[]{KEY_EMAIL} , KEY_EMAIL + "= ?"  , new String[]{email}, null, null, null, "1");
+        return cursor.getCount() > 0;
+    }
+
+    //Login method
+    public Boolean queryUser(String email, String password) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(true,TABLE_USER, new String[]{KEY_EMAIL, KEY_PASSWORD},
+                KEY_EMAIL + "= ? and " + KEY_PASSWORD + "= ?", new String[]{email, password}, null, null, null, "1");
+        return cursor.getCount() > 0;
+
+    }
+
     //Get all Users method
     public List<User> getAllUsers() {
-
         List<User> userList = new ArrayList<>();
-
         String selectQuery = "SELECT * FROM " + TABLE_USER;
-
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor u_cursor = db.rawQuery(selectQuery, null);
-
         if(u_cursor.moveToFirst())
         {
             do
@@ -168,6 +212,9 @@ public class DatabaseHelper extends SQLiteOpenHelper
                 user.setU_surname(u_cursor.getString(2));
                 user.setU_email(u_cursor.getString(3));
                 user.setU_password(u_cursor.getString(4));
+                user.setU_city(u_cursor.getString(5));
+                user.setU_suburb(u_cursor.getString(6));
+                user.setU_province(u_cursor.getString(7));
 
                 userList.add(user);
             } while (u_cursor.moveToNext());
@@ -186,6 +233,9 @@ public class DatabaseHelper extends SQLiteOpenHelper
         values.put(KEY_SURNAME, user.getU_surname());
         values.put(KEY_EMAIL, user.getU_email());
         values.put(KEY_PASSWORD, user.getU_password());
+        values.put(KEY_CITY, user.getU_city());
+        values.put(KEY_SUBURB, user.getU_suburb());
+        values.put(KEY_PROVINCE, user.getU_province());
 
         return db.update(TABLE_USER, values, KEY_ID + "=?",
                 new String[]{String.valueOf(user.getU_id())});
@@ -211,155 +261,52 @@ public class DatabaseHelper extends SQLiteOpenHelper
         return u_cursor.getCount();
     }
 
-    //Add SeedInformation Method
-    public void addSeed(Seed seed) {
+    //Add Plants Method
+    public void addPlant(Plants plants) {
 
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(KEY_S_NAME, seed.getS_name());
-        values.put(KEY_S_PREF_MONTH, seed.getS_PrefMonth());
-        values.put(KEY_S_MIN_H2O, seed.getS_minH2oReq());
-        values.put(KEY_S_MAX_H2O, seed.getS_maxH2oReq());
-        values.put(KEY_S_H2O_W_SEED, seed.getS_weeklyH2oSeed());
-        values.put(KEY_S_H2O_W_CROP, seed.getS_weeklyH2oCrop());
-        values.put(KEY_S_MIN_ETA_SPROUT, seed.getS_etaSproutMin());
-        values.put(KEY_S_MAX_ETA_SPROUT, seed.getS_etaSproutMax());
-        values.put(KEY_S_MIN_ETH, seed.getS_ethMin());
-        values.put(KEY_S_MAX_ETH, seed.getS_ethMax());
+        values.put(KEY_P_NAME, plants.getP_name());
+        values.put(KEY_P_PREF_MONTH, plants.getP_PrefMonth());
+        values.put(KEY_P_MIN_H2O, plants.getP_minH2oReq());
+        values.put(KEY_P_MAX_H2O, plants.getP_maxH2oReq());
+        values.put(KEY_P_H2O_W_SEED, plants.getP_weeklyH2oSeed());
+        values.put(KEY_P_H2O_W_CROP, plants.getP_weeklyH2oCrop());
+        values.put(KEY_P_MIN_ETA_SPROUT, plants.getP_etaSproutMin());
+        values.put(KEY_P_MAX_ETA_SPROUT, plants.getP_etaSproutMax());
+        values.put(KEY_P_MIN_ETH, plants.getP_ethMin());
+        values.put(KEY_P_MAX_ETH, plants.getP_ethMax());
 
-        db.insert(TABLE_SEED, null, values);
+        db.insert(TABLE_PLANTS, null, values);
         db.close();
     }
 
     //Get SeedInformation by seed ID method
-    public Seed getSeed(int s_id) {
+    public Plants getPlant(int p_id) {
 
-        SQLiteDatabase s_db = this.getReadableDatabase();
-
-        Cursor s_cursor = s_db.query(TABLE_SEED, new String[] {KEY_S_ID, KEY_S_NAME, KEY_S_PREF_MONTH, KEY_S_MIN_H2O, KEY_S_MAX_H2O, KEY_S_H2O_W_SEED, KEY_S_H2O_W_CROP, KEY_S_MIN_ETA_SPROUT, KEY_S_MAX_ETA_SPROUT, KEY_S_MIN_ETH, KEY_S_MAX_ETH},
-                KEY_S_ID + "=?", new String[]{String.valueOf(s_id)}, null, null, null, null);
-
-        if (s_cursor != null)
-        {
-            s_cursor.moveToFirst();
-        }
-
-        Seed seed = new Seed(Integer.parseInt(s_cursor.getString(0)), s_cursor.getString(1), s_cursor.getString(2),
-                Integer.parseInt(s_cursor.getString(3)), Integer.parseInt(s_cursor.getString(4)), Integer.parseInt(s_cursor.getString(5)), Integer.parseInt(s_cursor.getString(6)),
-                Integer.parseInt(s_cursor.getString(7)), Integer.parseInt(s_cursor.getString(8)), Integer.parseInt(s_cursor.getString(9)), Integer.parseInt(s_cursor.getString(10)));
-
-        return seed;
-    }
-
-    //Get all Seeds method
-    public List<Seed> getAllSeeds() {
-        List<Seed> seedList = new ArrayList<>();
-
-        String selectQuery = "SELECT * FROM " + TABLE_SEED;
-
-        SQLiteDatabase s_db = this.getWritableDatabase();
-        Cursor s_cursor = s_db.rawQuery(selectQuery, null);
-
-        if(s_cursor.moveToFirst())
-        {
-            do
-            {
-                Seed seed = new Seed();
-                seed.setS_id(Integer.parseInt(s_cursor.getString(0)));
-                seed.setS_name(s_cursor.getString(1));
-                seed.setS_PrefMonth(s_cursor.getString(2));
-                seed.setS_minH2oReq(Integer.parseInt(s_cursor.getString(3)));
-                seed.setS_maxH2oReq(Integer.parseInt(s_cursor.getString(4)));
-                seed.setS_weeklyH2oSeed(Integer.parseInt(s_cursor.getString(5)));
-                seed.setS_weeklyH2oCrop(Integer.parseInt(s_cursor.getString(6)));
-                seed.setS_etaSproutMin(Integer.parseInt(s_cursor.getString(7)));
-                seed.setS_etaSproutMax(Integer.parseInt(s_cursor.getString(8)));
-                seed.setS_ethMin(Integer.parseInt(s_cursor.getString(9)));
-                seed.setS_ethMax(Integer.parseInt(s_cursor.getString(10)));
-
-                seedList.add(seed);
-            } while (s_cursor.moveToNext());
-        }
-
-        return seedList;
-    }
-
-    //Update SeedInformation by id method
-    public int updateSeed(Seed seed) {
-        SQLiteDatabase s_db = this.getWritableDatabase();
-
-        ContentValues values = new ContentValues();
-        values.put(KEY_S_NAME, seed.getS_name());
-        values.put(KEY_S_PREF_MONTH, seed.getS_PrefMonth());
-        values.put(KEY_S_MIN_H2O, seed.getS_minH2oReq());
-        values.put(KEY_S_MAX_H2O, seed.getS_maxH2oReq());
-        values.put(KEY_S_H2O_W_SEED, seed.getS_weeklyH2oSeed());
-        values.put(KEY_S_H2O_W_CROP, seed.getS_weeklyH2oCrop());
-        values.put(KEY_S_MIN_ETA_SPROUT, seed.getS_etaSproutMin());
-        values.put(KEY_S_MAX_ETA_SPROUT, seed.getS_etaSproutMax());
-        values.put(KEY_S_MIN_ETH, seed.getS_ethMin());
-        values.put(KEY_S_MAX_ETH, seed.getS_ethMax());
-        return s_db.update(TABLE_SEED, values, KEY_S_ID + "=?",
-                new String[]{String.valueOf(seed.getS_id())});
-    }
-
-    //Delete SeedInformation by id method
-    public void deleteSeed(Seed seed) {
-        SQLiteDatabase s_db = this.getWritableDatabase();
-        s_db.delete(TABLE_SEED, KEY_S_ID + "=?",
-                new String[] {String.valueOf(seed.getS_id())});
-        s_db.close();
-    }
-
-    //SeedInformation Count method
-    public int getSeedCount() {
-        String countQuery = "SELECT * FROM " + TABLE_SEED;
-        SQLiteDatabase s_db = this.getReadableDatabase();
-        Cursor s_cursor = s_db.rawQuery(countQuery, null);
-        s_cursor.close();
-
-        return s_cursor.getCount();
-    }
-
-    //Add Planted Method
-    public void addPlant(Planted planted) {
-        SQLiteDatabase p_db = this.getWritableDatabase();
-
-        ContentValues values = new ContentValues();
-        values.put(KEY_P_NAME, planted.getP_name());
-        values.put(KEY_P_EXPECTED_WEEKLY_RAIN, planted.getP_ExpectedWeeklyRain());
-        values.put(KEY_P_WEEKLY_H2O_TOP_UP, planted.getP_weeklyH2oTopUpReq());
-        values.put(KEY_P_PLANTED_DATE, planted.getP_plantDate());
-        values.put(KEY_P_DAYS_OLD, planted.getP_daysOld());
-
-        p_db.insert(TABLE_PLANTED, null, values);
-        p_db.close();
-    }
-
-    //Get Planted by seed ID method
-    public Planted getPlanted(int p_id) {
         SQLiteDatabase p_db = this.getReadableDatabase();
 
-        Cursor p_cursor = p_db.query(TABLE_PLANTED, new String[] {KEY_P_ID, KEY_P_NAME, KEY_P_EXPECTED_WEEKLY_RAIN, KEY_P_WEEKLY_H2O_TOP_UP, KEY_P_PLANTED_DATE, KEY_P_DAYS_OLD},
-                KEY_P_ID + "=?", new String[]{String.valueOf(p_db)}, null, null, null, null);
+        Cursor p_cursor = p_db.query(TABLE_PLANTS, new String[] {KEY_P_ID, KEY_P_NAME, KEY_P_PREF_MONTH, KEY_P_MIN_H2O, KEY_P_MAX_H2O, KEY_P_H2O_W_SEED, KEY_P_H2O_W_CROP, KEY_P_MIN_ETA_SPROUT, KEY_P_MAX_ETA_SPROUT, KEY_P_MIN_ETH, KEY_P_MAX_ETH},
+                KEY_P_ID + "=?", new String[]{String.valueOf(p_id)}, null, null, null, null);
 
         if (p_cursor != null)
         {
             p_cursor.moveToFirst();
         }
 
-        Planted planted = new Planted(Integer.parseInt(p_cursor.getString(0)), p_cursor.getString(1), p_cursor.getString(2),
-        p_cursor.getString(3),  p_cursor.getString(4), p_cursor.getString(5));
+        Plants plants = new Plants(Integer.parseInt(p_cursor.getString(0)), p_cursor.getString(1), p_cursor.getString(2),
+                Integer.parseInt(p_cursor.getString(3)), Integer.parseInt(p_cursor.getString(4)), Integer.parseInt(p_cursor.getString(5)), Integer.parseInt(p_cursor.getString(6)),
+                Integer.parseInt(p_cursor.getString(7)), Integer.parseInt(p_cursor.getString(8)), Integer.parseInt(p_cursor.getString(9)), Integer.parseInt(p_cursor.getString(10)));
 
-        return planted;
+        return plants;
     }
 
-    //Get all Planted method
-    public List<Planted> getAllPlanted() {
-        List<Planted> plantedList = new ArrayList<>();
+    //Get all Plants method
+    public List<Plants> getAllPlants() {
+        List<Plants> plantsList = new ArrayList<>();
 
-        String selectQuery = "SELECT * FROM " + TABLE_PLANTED;
+        String selectQuery = "SELECT * FROM " + TABLE_PLANTS;
 
         SQLiteDatabase p_db = this.getWritableDatabase();
         Cursor p_cursor = p_db.rawQuery(selectQuery, null);
@@ -368,51 +315,154 @@ public class DatabaseHelper extends SQLiteOpenHelper
         {
             do
             {
-                Planted planted = new Planted();
-                planted.setP_id(Integer.parseInt(p_cursor.getString(0)));
-                planted.setP_name(p_cursor.getString(1));
-                planted.setP_ExpectedWeeklyRain(p_cursor.getString(2));
-                planted.setP_weeklyH2oTopUpReq(p_cursor.getString(3));
-                planted.setP_plantDate(p_cursor.getString(4));
-                planted.setP_daysOld(p_cursor.getString(5));
+                Plants plants = new Plants();
+                plants.setP_id(Integer.parseInt(p_cursor.getString(0)));
+                plants.setP_name(p_cursor.getString(1));
+                plants.setP_PrefMonth(p_cursor.getString(2));
+                plants.setP_minH2oReq(Integer.parseInt(p_cursor.getString(3)));
+                plants.setP_maxH2oReq(Integer.parseInt(p_cursor.getString(4)));
+                plants.setP_weeklyH2oSeed(Integer.parseInt(p_cursor.getString(5)));
+                plants.setP_weeklyH2oCrop(Integer.parseInt(p_cursor.getString(6)));
+                plants.setP_etaSproutMin(Integer.parseInt(p_cursor.getString(7)));
+                plants.setP_etaSproutMax(Integer.parseInt(p_cursor.getString(8)));
+                plants.setP_ethMin(Integer.parseInt(p_cursor.getString(9)));
+                plants.setP_ethMax(Integer.parseInt(p_cursor.getString(10)));
 
-                plantedList.add(planted);
+                plantsList.add(plants);
             } while (p_cursor.moveToNext());
         }
 
-        return plantedList;
+        return plantsList;
     }
 
-    //Update Planted by id method
-    public int updatePlanted(Planted planted) {
+    //Update Plants by id method
+    public int updatePlant(Plants plants) {
         SQLiteDatabase p_db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(KEY_P_NAME, planted.getP_name());
-        values.put(KEY_P_EXPECTED_WEEKLY_RAIN, planted.getP_ExpectedWeeklyRain());
-        values.put(KEY_P_WEEKLY_H2O_TOP_UP, planted.getP_weeklyH2oTopUpReq());
-        values.put(KEY_P_PLANTED_DATE, planted.getP_plantDate());
-        values.put(KEY_P_DAYS_OLD, planted.getP_daysOld());
-        return p_db.update(TABLE_PLANTED, values, KEY_P_ID + "=?",
-                new String[]{String.valueOf(planted.getP_id())});
+        values.put(KEY_P_NAME, plants.getP_name());
+        values.put(KEY_P_PREF_MONTH, plants.getP_PrefMonth());
+        values.put(KEY_P_MIN_H2O, plants.getP_minH2oReq());
+        values.put(KEY_P_MAX_H2O, plants.getP_maxH2oReq());
+        values.put(KEY_P_H2O_W_SEED, plants.getP_weeklyH2oSeed());
+        values.put(KEY_P_H2O_W_CROP, plants.getP_weeklyH2oCrop());
+        values.put(KEY_P_MIN_ETA_SPROUT, plants.getP_etaSproutMin());
+        values.put(KEY_P_MAX_ETA_SPROUT, plants.getP_etaSproutMax());
+        values.put(KEY_P_MIN_ETH, plants.getP_ethMin());
+        values.put(KEY_P_MAX_ETH, plants.getP_ethMax());
+        return p_db.update(TABLE_PLANTS, values, KEY_P_ID + "=?",
+                new String[]{String.valueOf(plants.getP_id())});
     }
 
-    //Delete Planted by id method
-    public void deletePlanted(Planted planted) {
+    //Delete Plant by id method
+    public void deletePlant(Plants plants) {
         SQLiteDatabase p_db = this.getWritableDatabase();
-        p_db.delete(TABLE_PLANTED, KEY_P_ID + "=?",
-                new String[] {String.valueOf(planted.getP_id())});
+        p_db.delete(TABLE_PLANTS, KEY_P_ID + "=?",
+                new String[] {String.valueOf(plants.getP_id())});
         p_db.close();
     }
 
-    //Planted Count method
-    public int getPlantedCount() {
-        String countQuery = "SELECT * FROM " + TABLE_PLANTED;
+    //Plant Count method
+    public int getPlantCount() {
+        String countQuery = "SELECT * FROM " + TABLE_PLANTS;
         SQLiteDatabase p_db = this.getReadableDatabase();
         Cursor p_cursor = p_db.rawQuery(countQuery, null);
         p_cursor.close();
 
         return p_cursor.getCount();
+    }
+
+    //Add Crops Method
+    public void addCrop(Crops crops) {
+        SQLiteDatabase c_db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_C_NAME, crops.getC_name());
+        values.put(KEY_C_EXPECTED_WEEKLY_RAIN, crops.getC_ExpectedWeeklyRain());
+        values.put(KEY_C_WEEKLY_H2O_TOP_UP, crops.getC_weeklyH2oTopUpReq());
+        values.put(KEY_C_PLANTED_DATE, crops.getC_plantDate());
+        values.put(KEY_C_DAYS_OLD, crops.getC_daysOld());
+
+        c_db.insert(TABLE_CROPS, null, values);
+        c_db.close();
+    }
+
+    //Get Crops by seed ID method
+    public Crops getCrop(int c_id) {
+        SQLiteDatabase c_db = this.getReadableDatabase();
+
+        Cursor c_cursor = c_db.query(TABLE_CROPS, new String[] {KEY_C_ID, KEY_C_NAME, KEY_C_EXPECTED_WEEKLY_RAIN, KEY_C_WEEKLY_H2O_TOP_UP, KEY_C_PLANTED_DATE, KEY_C_DAYS_OLD},
+                KEY_C_ID + "=?", new String[]{String.valueOf(c_db)}, null, null, null, null);
+
+        if (c_cursor != null)
+        {
+            c_cursor.moveToFirst();
+        }
+
+        Crops crops = new Crops(Integer.parseInt(c_cursor.getString(0)), c_cursor.getString(1), Integer.parseInt(c_cursor.getString(2)),
+                Integer.parseInt(c_cursor.getString(3)),  c_cursor.getString(4), Integer.parseInt(c_cursor.getString(5)));
+
+        return crops;
+    }
+
+    //Get all Crops method
+    public List<Crops> getAllCrops() {
+        List<Crops> cropsList = new ArrayList<>();
+
+        String selectQuery = "SELECT * FROM " + TABLE_CROPS;
+
+        SQLiteDatabase c_db = this.getWritableDatabase();
+        Cursor c_cursor = c_db.rawQuery(selectQuery, null);
+
+        if(c_cursor.moveToFirst())
+        {
+            do
+            {
+                Crops crops = new Crops();
+                crops.setC_id(Integer.parseInt(c_cursor.getString(0)));
+                crops.setC_name(c_cursor.getString(1));
+                crops.setC_ExpectedWeeklyRain(Integer.parseInt(c_cursor.getString(2)));
+                crops.setC_weeklyH2oTopUpReq(Integer.parseInt(c_cursor.getString(3)));
+                crops.setC_plantDate(c_cursor.getString(4));
+                crops.setC_daysOld(Integer.parseInt(c_cursor.getString(5)));
+
+                cropsList.add(crops);
+            } while (c_cursor.moveToNext());
+        }
+
+        return cropsList;
+    }
+
+    //Update Crops by id method
+    public int updateCrops(Crops crops) {
+        SQLiteDatabase c_db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_C_NAME, crops.getC_name());
+        values.put(KEY_C_EXPECTED_WEEKLY_RAIN, crops.getC_ExpectedWeeklyRain());
+        values.put(KEY_C_WEEKLY_H2O_TOP_UP, crops.getC_weeklyH2oTopUpReq());
+        values.put(KEY_C_PLANTED_DATE, crops.getC_plantDate());
+        values.put(KEY_C_DAYS_OLD, crops.getC_daysOld());
+        return c_db.update(TABLE_CROPS, values, KEY_C_ID + "=?",
+                new String[]{String.valueOf(crops.getC_id())});
+    }
+
+    //Delete Crops by id method
+    public void deleteCrops(Crops crops) {
+        SQLiteDatabase c_db = this.getWritableDatabase();
+        c_db.delete(TABLE_CROPS, KEY_C_ID + "=?",
+                new String[] {String.valueOf(crops.getC_id())});
+        c_db.close();
+    }
+
+    //Crops Count method
+    public int getCropsCount() {
+        String countQuery = "SELECT * FROM " + TABLE_CROPS;
+        SQLiteDatabase c_db = this.getReadableDatabase();
+        Cursor c_cursor = c_db.rawQuery(countQuery, null);
+        c_cursor.close();
+
+        return c_cursor.getCount();
     }
 
     //Add Weather Method
