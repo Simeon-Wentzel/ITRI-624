@@ -1,4 +1,4 @@
-package com.efarmer.erain.Crops;
+package com.efarmer.erain.CropsPackage;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.efarmer.erain.Crops;
 import com.efarmer.erain.R;
 
 import java.util.List;
@@ -15,11 +16,11 @@ public class CropsAdapter extends RecyclerView.Adapter<CropsAdapter.CropViewHold
 
     //This context will inflate the layout
     private Context mCtx;
-    private List<Crops> cropsList;
+    private List<RecyclerCrops> recyclerCropsList;
 
-    public CropsAdapter(Context mCtx, List<Crops> cropsList){
+    public CropsAdapter(Context mCtx, List<RecyclerCrops> recyclerCropsList){
         this.mCtx = mCtx;
-        this.cropsList = cropsList;
+        this.recyclerCropsList = recyclerCropsList;
     }
 
     @Override
@@ -34,19 +35,22 @@ public class CropsAdapter extends RecyclerView.Adapter<CropsAdapter.CropViewHold
     @Override
     public void onBindViewHolder(CropViewHolder holder, int position) {
         //getting the product of the specified position
-        Crops crops = cropsList.get(position);
+        RecyclerCrops recyclerCrops = recyclerCropsList.get(position);
 
         //binding the data with the viewholder views
-        holder.textViewTitle.setText(crops.getName());
-        holder.textViewShortDesc.setText(crops.getPlantedDate());
-        holder.textViewRating.setText(String.valueOf(crops.getDaysOld()));
-        //holder.textViewPrice.setText(String.valueOf(crops.getPrice()));
+        holder.textViewTitle.setText(recyclerCrops.getName());
+        holder.textViewShortDesc.setText(recyclerCrops.getPlantedDate());
+        holder.textViewRating.setText(String.valueOf(recyclerCrops.getDaysOld()));
+        // holder.textViewPrice.setText(String.valueOf(recyclerCrops.getPrice()));
+
+        // Image
+        // holder.imageView.setImageDrawable(mCtx.getResources().getDrawable(product.getImage()));
 
     }
 
     @Override
     public int getItemCount() {
-        return cropsList.size();
+        return recyclerCropsList.size();
     }
 
     class CropViewHolder extends RecyclerView.ViewHolder {

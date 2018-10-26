@@ -82,7 +82,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
                 +")";
         db.execSQL(CREATE_PLANTS_TABLE);
 
-        //Create Crops Table
+        //Create RecyclerCrops Table
         String CREATE_CROPS_TABLE = "CREATE TABLE " + TABLE_CROPS + "("
                 + KEY_C_ID + " INTEGER PRIMARY KEY,"+ KEY_C_NAME + " TEXT,"
                 + KEY_C_EXPECTED_WEEKLY_RAIN + " INTEGER," + KEY_C_WEEKLY_H2O_TOP_UP + " INTEGER,"
@@ -261,7 +261,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
         return u_cursor.getCount();
     }
 
-    //Add Plants Method
+    //Add RecyclerPlants Method
     public void addPlant(Plants plants) {
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -302,7 +302,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
         return plants;
     }
 
-    //Get all Plants method
+    //Get all RecyclerPlants method
     public List<Plants> getAllPlants() {
         List<Plants> plantsList = new ArrayList<>();
 
@@ -335,7 +335,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
         return plantsList;
     }
 
-    //Update Plants by id method
+    //Update RecyclerPlants by id method
     public int updatePlant(Plants plants) {
         SQLiteDatabase p_db = this.getWritableDatabase();
 
@@ -372,7 +372,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
         return p_cursor.getCount();
     }
 
-    //Add Crops Method
+    //Add RecyclerCrops Method
     public void addCrop(Crops crops) {
         SQLiteDatabase c_db = this.getWritableDatabase();
 
@@ -387,7 +387,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
         c_db.close();
     }
 
-    //Get Crops by seed ID method
+    //Get RecyclerCrops by seed ID method
     public Crops getCrop(int c_id) {
         SQLiteDatabase c_db = this.getReadableDatabase();
 
@@ -405,7 +405,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
         return crops;
     }
 
-    //Get all Crops method
+    //Get all RecyclerCrops method
     public List<Crops> getAllCrops() {
         List<Crops> cropsList = new ArrayList<>();
 
@@ -433,7 +433,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
         return cropsList;
     }
 
-    //Update Crops by id method
+    //Update RecyclerCrops by id method
     public int updateCrops(Crops crops) {
         SQLiteDatabase c_db = this.getWritableDatabase();
 
@@ -447,7 +447,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
                 new String[]{String.valueOf(crops.getC_id())});
     }
 
-    //Delete Crops by id method
+    //Delete RecyclerCrops by id method
     public void deleteCrops(Crops crops) {
         SQLiteDatabase c_db = this.getWritableDatabase();
         c_db.delete(TABLE_CROPS, KEY_C_ID + "=?",
@@ -455,7 +455,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
         c_db.close();
     }
 
-    //Crops Count method
+    //RecyclerCrops Count method
     public int getCropsCount() {
         String countQuery = "SELECT * FROM " + TABLE_CROPS;
         SQLiteDatabase c_db = this.getReadableDatabase();

@@ -1,4 +1,4 @@
-package com.efarmer.erain.Crops;
+package com.efarmer.erain.CropsPackage;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -23,12 +23,12 @@ public class PlantsAdapter extends RecyclerView.Adapter<PlantsAdapter.PlantViewH
     //This context will inflate the layout
     private Context mCtx;
     //Store all the crops in a list
-    private List<Plants> plantsList;
+    private List<RecyclerPlants> recyclerPlantsList;
     Dialog myDialog;
 
-    public PlantsAdapter(Context mCtx, List<Plants> plantList){
+    public PlantsAdapter(Context mCtx, List<RecyclerPlants> plantList){
         this.mCtx = mCtx;
-        this.plantsList = plantList;
+        this.recyclerPlantsList = plantList;
     }
 
     @Override
@@ -54,15 +54,15 @@ public class PlantsAdapter extends RecyclerView.Adapter<PlantsAdapter.PlantViewH
                 ImageView dialog_plant_img = (ImageView) myDialog.findViewById(R.id.imgPlant);
 
                 // Create text for dialog population
-                String title = plantsList.get(plantViewHolder.getAdapterPosition()).getTitle();
-                String subtitle = plantsList.get(plantViewHolder.getAdapterPosition()).getSubtitle();
-                String information = plantsList.get(plantViewHolder.getAdapterPosition()).getInformation();
+                String title = recyclerPlantsList.get(plantViewHolder.getAdapterPosition()).getTitle();
+                String subtitle = recyclerPlantsList.get(plantViewHolder.getAdapterPosition()).getSubtitle();
+                String information = recyclerPlantsList.get(plantViewHolder.getAdapterPosition()).getInformation();
                 dialog_title.setText(title);
                 dialog_subtitle.setText(subtitle);
                 dialog_information.setText(information);
-                //dialog_plant_img.setImageResource(plantsList.get(plantViewHolder.getAdapterPosition()).getPhoto());
+                //dialog_plant_img.setImageResource(recyclerPlantsList.get(plantViewHolder.getAdapterPosition()).getPhoto());
 
-                Toast.makeText(mCtx, "Test Click"+String.valueOf(plantViewHolder.getAdapterPosition()),Toast.LENGTH_SHORT).show();
+                //Toast.makeText(mCtx, "Test Click"+String.valueOf(plantViewHolder.getAdapterPosition()),Toast.LENGTH_SHORT).show();
                 myDialog.show();
             }
         });
@@ -70,23 +70,26 @@ public class PlantsAdapter extends RecyclerView.Adapter<PlantsAdapter.PlantViewH
         return plantViewHolder;
     }
 
-    // RECYCLERVIEW PLANTS
+    // RECYCLERVIEW PLANTS!
     @Override
     public void onBindViewHolder(PlantsAdapter.PlantViewHolder holder, int position) {
         //getting the product of the specified position
-        Plants plants = plantsList.get(position);
+        RecyclerPlants recyclerPlants = recyclerPlantsList.get(position);
 
         //binding the data with the viewholder views
-        holder.textViewTitle.setText(plants.getTitle());
-        holder.textViewShortDesc.setText(plants.getSubtitle());
-        holder.textViewRating.setText(plants.getHarvestETA()+" weeks");
-        //holder.textViewPrice.setText(plants.getInformation());
+        holder.textViewTitle.setText(recyclerPlants.getTitle());
+        holder.textViewShortDesc.setText(recyclerPlants.getSubtitle());
+        holder.textViewRating.setText(recyclerPlants.getHarvestETA()+" weeks");
+        //holder.textViewPrice.setText(recyclerPlants.getInformation());
+
+        // Image
+        // holder.imageView.setImageDrawable(mCtx.getResources().getDrawable(product.getImage()));
 
     }
 
     @Override
     public int getItemCount() {
-        return plantsList.size();
+        return recyclerPlantsList.size();
     }
 
     class PlantViewHolder extends RecyclerView.ViewHolder {

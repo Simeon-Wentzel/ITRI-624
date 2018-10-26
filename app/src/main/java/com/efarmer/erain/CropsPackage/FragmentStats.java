@@ -1,4 +1,4 @@
-package com.efarmer.erain.Crops;
+package com.efarmer.erain.CropsPackage;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

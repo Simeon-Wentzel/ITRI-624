@@ -1,10 +1,10 @@
-package com.efarmer.erain.Crops;
+package com.efarmer.erain.CropsPackage;
 
-public class Crops {
+public class RecyclerCrops {
     private int id;
     private String name, exptWeeklyRain, topupH2O, plantedDate, daysOld;
 
-    public Crops(int id, String name, String exptWeeklyRain, String topupH2O, String plantedDate, String daysOld){
+    public RecyclerCrops(int id, String name, String exptWeeklyRain, String topupH2O, String plantedDate, String daysOld){
         this.id = id;
         this.name = name;
         this.exptWeeklyRain = exptWeeklyRain;

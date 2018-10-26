@@ -1,4 +1,4 @@
-package com.efarmer.erain.Crops;
+package com.efarmer.erain.CropsPackage;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 
 import com.efarmer.erain.DatabaseHelper;
 import com.efarmer.erain.R;
-import com.efarmer.erain.Seed;
+import com.efarmer.erain.Plants;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +21,7 @@ public class FragmentPlants extends Fragment {
     View view;
     private RecyclerView recyclerView;
     private List<Plants> plantList;
+    private List<RecyclerPlants> recyclerPlantsList;
 
     public FragmentPlants() {
         // Required empty public constructor
@@ -30,23 +31,23 @@ public class FragmentPlants extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        plantList = new ArrayList<>();
 
         DatabaseHelper db = new DatabaseHelper(getContext());
-        List<Seed> seed = db.getAllSeeds();
+        plantList = db.getAllPlants();
+        recyclerPlantsList = new ArrayList<>();
 
-        for (Seed s : seed) {
-            int id = s.getS_id();
-            String name = s.getS_name();
-            String prefMonth = s.getS_PrefMonth();
-            String generalH2O = s.getS_minH2oReq() + "~" + s.getS_maxH2oReq();
-            String seedH20 = String.valueOf(s.getS_weeklyH2oSeed());
-            String cropH20 = String.valueOf(s.getS_weeklyH2oCrop());
-            String sproutETA = s.getS_etaSproutMin() + "~" + s.getS_etaSproutMax();
-            String harvestETA = s.getS_ethMin() + "~" + s.getS_ethMax();
+        for (Plants p : plantList) {
+            int id = p.getP_id();
+            String name = p.getP_name();
+            String prefMonth = p.getP_PrefMonth();
+            String generalH2O = p.getP_minH2oReq() + "~" + p.getP_maxH2oReq();
+            String seedH20 = String.valueOf(p.getP_weeklyH2oSeed());
+            String cropH20 = String.valueOf(p.getP_weeklyH2oCrop());
+            String sproutETA = p.getP_etaSproutMin() + "~" + p.getP_etaSproutMax();
+            String harvestETA = p.getP_ethMin() + "~" + p.getP_ethMax();
 
-            plantList.add(
-                    new Plants(
+            recyclerPlantsList.add(
+                    new RecyclerPlants(
                             id,
                             name,
                             prefMonth,
@@ -55,8 +56,6 @@ public class FragmentPlants extends Fragment {
                             cropH20,
                             sproutETA,
                             harvestETA));
-
-
         }
 
     }
@@ -67,7 +66,7 @@ public class FragmentPlants extends Fragment {
         // Inflate the layout for this fragment
         view =  inflater.inflate(R.layout.fragment_crops_plants, container, false);
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerViewPlants);
-        PlantsAdapter plantsAdapter = new PlantsAdapter(getContext(), plantList);
+        PlantsAdapter plantsAdapter = new PlantsAdapter(getContext(), recyclerPlantsList);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(plantsAdapter);
         return view;

@@ -1,11 +1,11 @@
-package com.efarmer.erain.Crops;
+package com.efarmer.erain.CropsPackage;
 
-public class Plants {
+public class RecyclerPlants {
 
     private int id;
     private String name, prefMonth, generalH2O, seedH20, cropH20, sproutETA, harvestETA;
 
-    public Plants(int id, String name, String prefMonth, String generalH2O, String seedH20, String cropH20, String sproutETA, String harvestETA){
+    public RecyclerPlants(int id, String name, String prefMonth, String generalH2O, String seedH20, String cropH20, String sproutETA, String harvestETA){
         this.id = id;
         this.name = name;
         this.prefMonth = prefMonth;

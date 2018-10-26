@@ -1,6 +1,5 @@
-package com.efarmer.erain.Crops;
+package com.efarmer.erain.CropsPackage;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
@@ -11,9 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.efarmer.erain.DatabaseHelper;
-import com.efarmer.erain.Planted;
 import com.efarmer.erain.R;
-import com.efarmer.erain.Seed;
+import com.efarmer.erain.Crops;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +21,7 @@ public class FragmentCrops extends Fragment {
     View view;
     private RecyclerView recyclerView;
     private List<Crops> cropsList;
+    private List<RecyclerCrops> recyclerCropsList;
 
 
     public  FragmentCrops(){
@@ -35,18 +34,19 @@ public class FragmentCrops extends Fragment {
         super.onCreate(savedInstanceState);
 
         DatabaseHelper db = new DatabaseHelper(getContext());
-        List<Planted> plantedList = db.getAllPlanted();
+        cropsList = db.getAllCrops();
+        recyclerCropsList = new ArrayList<>();
 
-        for (Planted p : plantedList) {
-            int id = p.getP_id();
-            String name = p.getP_name();
-            String exptWeeklyRain = String.valueOf(p.getP_ExpectedWeeklyRain());
-            String weeklyH20TopUp = String.valueOf(p.getP_weeklyH2oTopUpReq());
-            String plantDate = String.valueOf(p.getP_plantDate());
-            String daysOld = String.valueOf(p.getP_daysOld());
+        for (Crops c : cropsList) {
+            int id = c.getC_id();
+            String name = c.getC_name();
+            String exptWeeklyRain = String.valueOf(c.getC_ExpectedWeeklyRain());
+            String weeklyH20TopUp = String.valueOf(c.getC_weeklyH2oTopUpReq());
+            String plantDate = String.valueOf(c.getC_plantDate());
+            String daysOld = String.valueOf(c.getC_daysOld());
 
-            plantedList.add(
-                    new Planted(
+            recyclerCropsList.add(
+                    new RecyclerCrops(
                             id,
                             name,
                             exptWeeklyRain,
@@ -62,7 +62,7 @@ public class FragmentCrops extends Fragment {
         // Inflate the layout for this fragment
         view =  inflater.inflate(R.layout.fragment_crops_crops, container, false);
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerViewCrops);
-        CropsAdapter cropsAdapter = new CropsAdapter(getContext(), cropsList);
+        CropsAdapter cropsAdapter = new CropsAdapter(getContext(), recyclerCropsList);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(cropsAdapter);
         return view;
