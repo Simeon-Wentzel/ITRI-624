@@ -25,6 +25,11 @@ import com.efarmer.erain.Utills.BottomNavViewHelper;
 import com.efarmer.erain.Utills.ViewPagerAdapter;
 
 
+import com.efarmer.erain.Utills.FragmentCrops;
+import com.efarmer.erain.Utills.FragmentSeeds;
+import com.efarmer.erain.Utills.FragmentStats;
+
+
 public class CropsActivity extends AppCompatActivity {
 
     private static final String TAG = "CropsActivity";
@@ -86,6 +91,7 @@ public class CropsActivity extends AppCompatActivity {
         adapter.addFragment(new Fragment(), "Crops");
         adapter.addFragment(new Fragment(), "Stats");
         viewPager.setAdapter(adapter);
+
 
     }
 
