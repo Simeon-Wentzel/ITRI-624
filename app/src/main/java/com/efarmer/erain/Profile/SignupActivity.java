@@ -26,8 +26,8 @@ public class SignupActivity extends AppCompatActivity {
 
     //Class variables
     public Button btnSignUp;
-    public EditText txtName, txtSurname, txtEmail_su, txtCell;
-    public EditText txtCity, txtProvince,  txtPassword_su, txtConfirmPassword;
+    public EditText txtName, txtSurname, txtEmail_su;
+    public EditText txtCity, txtSuburb, txtProvince,  txtPassword_su, txtConfirmPassword;
     public String URL = "http://erain.ddns.net:8080/signup.php";
     JSONObject jsonObject;
     //email validation regex
@@ -50,8 +50,8 @@ public class SignupActivity extends AppCompatActivity {
         txtName = (EditText) findViewById(R.id.txtName);
         txtSurname = (EditText) findViewById(R.id.txtSurname);
         txtEmail_su = (EditText) findViewById(R.id.txtEmail_su);
-        txtCell = (EditText) findViewById(R.id.txtCell);
         txtCity = (EditText) findViewById(R.id.txtCity);
+        txtSuburb = (EditText) findViewById(R.id.txtSuburb);
         txtProvince = (EditText) findViewById(R.id.txtProvince);
         txtPassword_su = (EditText) findViewById(R.id.txtPassword_su);
         txtConfirmPassword = (EditText) findViewById(R.id.txtConfirmPassword);
@@ -73,8 +73,9 @@ public class SignupActivity extends AppCompatActivity {
         String name = txtName.getText().toString();
         String surname = txtSurname.getText().toString();
         String email = txtEmail_su.getText().toString();
-        String cell = txtCell.getText().toString();
         String city = txtCity.getText().toString();
+        String suburb = txtSuburb.getText().toString();
+        String province = txtProvince.getText().toString();
         String password = txtPassword_su.getText().toString();
         String confirmPassword = txtConfirmPassword.getText().toString();
 
@@ -103,8 +104,9 @@ public class SignupActivity extends AppCompatActivity {
             jsonObject.put("name", name);
             jsonObject.put("surname", surname);
             jsonObject.put("email", email);
-            jsonObject.put("cell", cell);
             jsonObject.put("city", city);
+            jsonObject.put("suburb", suburb);
+            jsonObject.put("province", province);
             jsonObject.put("password", password);
 
         } catch (JSONException e) {

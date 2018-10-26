@@ -18,6 +18,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.efarmer.erain.Profile.EditActivity;
 import com.efarmer.erain.Profile.ProfileActivity;
 import com.efarmer.erain.R;
 import com.efarmer.erain.Utills.BottomNavViewHelper;
@@ -51,7 +52,10 @@ public class HomeActivity extends AppCompatActivity {
                         drawerLayout.closeDrawers();
                         break;
                     case R.id.navigation_edit_profle:
-                        Toast.makeText(HomeActivity.this, "Edit Profile",Toast.LENGTH_SHORT).show();
+                        Intent intentEdit = new Intent(mContext, EditActivity.class);
+                        mContext.startActivity(intentEdit);
+                        drawerLayout.closeDrawers();
+                        break;
 
                 }
                 return false;
