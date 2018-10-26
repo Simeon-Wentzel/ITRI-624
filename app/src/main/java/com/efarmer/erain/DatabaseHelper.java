@@ -349,8 +349,8 @@ public class DatabaseHelper extends SQLiteOpenHelper
             p_cursor.moveToFirst();
         }
 
-        Planted planted = new Planted(Integer.parseInt(p_cursor.getString(0)), p_cursor.getString(1), Integer.parseInt(p_cursor.getString(2)),
-                Integer.parseInt(p_cursor.getString(3)),  p_cursor.getString(4), Integer.parseInt(p_cursor.getString(5)));
+        Planted planted = new Planted(Integer.parseInt(p_cursor.getString(0)), p_cursor.getString(1), p_cursor.getString(2),
+        p_cursor.getString(3),  p_cursor.getString(4), p_cursor.getString(5));
 
         return planted;
     }
@@ -371,10 +371,10 @@ public class DatabaseHelper extends SQLiteOpenHelper
                 Planted planted = new Planted();
                 planted.setP_id(Integer.parseInt(p_cursor.getString(0)));
                 planted.setP_name(p_cursor.getString(1));
-                planted.setP_ExpectedWeeklyRain(Integer.parseInt(p_cursor.getString(2)));
-                planted.setP_weeklyH2oTopUpReq(Integer.parseInt(p_cursor.getString(3)));
+                planted.setP_ExpectedWeeklyRain(p_cursor.getString(2));
+                planted.setP_weeklyH2oTopUpReq(p_cursor.getString(3));
                 planted.setP_plantDate(p_cursor.getString(4));
-                planted.setP_daysOld(Integer.parseInt(p_cursor.getString(5)));
+                planted.setP_daysOld(p_cursor.getString(5));
 
                 plantedList.add(planted);
             } while (p_cursor.moveToNext());

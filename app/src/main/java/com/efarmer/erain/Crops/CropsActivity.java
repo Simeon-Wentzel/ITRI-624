@@ -8,12 +8,12 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -25,11 +25,6 @@ import com.efarmer.erain.Utills.BottomNavViewHelper;
 import com.efarmer.erain.Utills.ViewPagerAdapter;
 
 
-import com.efarmer.erain.Utills.FragmentCrops;
-import com.efarmer.erain.Utills.FragmentSeeds;
-import com.efarmer.erain.Utills.FragmentStats;
-
-
 public class CropsActivity extends AppCompatActivity {
 
     private static final String TAG = "CropsActivity";
@@ -39,6 +34,9 @@ public class CropsActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
     private TabLayout tabLayout;
     private ViewPager viewPager;
+
+    //the recyclerview
+    RecyclerView recyclerView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState){
@@ -77,22 +75,25 @@ public class CropsActivity extends AppCompatActivity {
 
     }
 
+
+
+
     public void setContentAndPager(){
         viewPager = (ViewPager) findViewById(R.id.crops_viewpager);
-        setupViewPager(viewPager);
+        setupViewPager(viewPager, recyclerView);
         tabLayout = (TabLayout) findViewById(R.id.crops_tabs);
         tabLayout.setupWithViewPager(viewPager);
 
     }
 
-    private void setupViewPager(ViewPager viewPager) {
+
+    private void setupViewPager(ViewPager viewPager, RecyclerView recyclerView) {
+
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new Fragment(), "Plants");
-        adapter.addFragment(new Fragment(), "Crops");
-        adapter.addFragment(new Fragment(), "Stats");
+        adapter.addFragment(new FragmentPlants(), "Plants");
+        adapter.addFragment(new FragmentCrops(), "Crops");
+        adapter.addFragment(new FragmentStats(), "Stats");
         viewPager.setAdapter(adapter);
-
-
     }
 
     public void setActionBar(){

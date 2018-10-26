@@ -4,11 +4,7 @@ public class Planted
 {
     //Declare Variables
     int p_id;
-    String p_name;
-    int p_expected_weekly_rain;
-    int p_weekly_h2o_top_up_req;
-    String p_planted_date;
-    int p_days_old;
+    String p_name, p_expected_weekly_rain, p_weekly_h2o_top_up_req, p_planted_date, p_days_old;
 
     //Constructor
     public Planted()
@@ -16,7 +12,7 @@ public class Planted
 
     }
 
-    public Planted(String p_name, int p_expected_weekly_rain, int p_weekly_h2o_top_up_req, String p_planted_date, int p_days_old)
+    public Planted(String p_name, String p_expected_weekly_rain, String p_weekly_h2o_top_up_req, String p_planted_date, String p_days_old)
     {
         this.p_name = p_name;
         this.p_expected_weekly_rain = p_expected_weekly_rain;
@@ -25,7 +21,7 @@ public class Planted
         this.p_days_old = p_days_old;
     }
 
-    public Planted(int p_id, String p_name, int p_expected_weekly_rain, int p_weekly_h2o_top_up_req, String p_planted_date, int p_days_old)
+    public Planted(int p_id, String p_name, String p_expected_weekly_rain, String p_weekly_h2o_top_up_req, String p_planted_date, String p_days_old)
     {
         this.p_id = p_id;
         this.p_name = p_name;
@@ -58,23 +54,23 @@ public class Planted
     }
 
     // expected weekly rain
-    public int getP_ExpectedWeeklyRain()
+    public String getP_ExpectedWeeklyRain()
     {
         return p_expected_weekly_rain;
     }
 
-    public void setP_ExpectedWeeklyRain(int p_expected_weekly_rain)
+    public void setP_ExpectedWeeklyRain(String p_expected_weekly_rain)
     {
         this.p_expected_weekly_rain = p_expected_weekly_rain;
     }
 
     //h2o min requirements get-set-method
-    public int getP_weeklyH2oTopUpReq()
+    public String getP_weeklyH2oTopUpReq()
     {
         return p_weekly_h2o_top_up_req;
     }
 
-    public void setP_weeklyH2oTopUpReq(int p_weekly_h2o_top_up_req)
+    public void setP_weeklyH2oTopUpReq(String p_weekly_h2o_top_up_req)
     {
         this.p_weekly_h2o_top_up_req = p_weekly_h2o_top_up_req;
     }
@@ -91,12 +87,12 @@ public class Planted
     }
 
     //plant days age in days get-set-method
-    public int getP_daysOld()
+    public String getP_daysOld()
     {
         return p_days_old;
     }
 
-    public void setP_daysOld(int p_days_old)
+    public void setP_daysOld(String p_days_old)
     {
         this.p_days_old = p_days_old;
     }

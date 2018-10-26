@@ -51,10 +51,11 @@ public class LoadingScreen extends AppCompatActivity {
         db.addSeed(new Seed("Strawberries", "Nov-Dec", 200, 300, 38, 38, 14, 21, 42, 61));
 
         //inserting planted
-       /* db.addPlant(new Planted("Corn", 30, 20, "2018-09-04", 7));
+        db.addPlant(new Planted("Corn", "30", "20", "2018-09-04", "7"));
+        db.addPlant(new Planted("Beet", "38", "21", "2012-09-04", "123"));
 
         //inserting weather
-        db.addWeather(new Weather("15", "20", "10", "25", "18/12/2018"));*/
+        //db.addWeather(new Weather("15", "20", "10", "25", "2018-12-18"));
 
         new Handler().postDelayed(new Runnable(){
             @Override
