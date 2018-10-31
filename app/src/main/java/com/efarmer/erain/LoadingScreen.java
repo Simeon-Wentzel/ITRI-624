@@ -54,7 +54,45 @@ public class LoadingScreen extends AppCompatActivity {
         db.addPlant(new Plants("Strawberries", "Nov-Dec", 200, 300, 38, 38, 14, 21, 42, 61));
 
         //insert RecyclerCrops
-        db.addCrop(new Crops("Corn", 30, 20, "2018-09-04", 7));
+        // Tomoato
+        db.addCrop(new Crops("Tomato", 30, 20, "2018-10-04", 23));
+        db.addCrop(new Crops("Tomato", 30, 20, "2018-10-14", 14));
+        db.addCrop(new Crops("Tomato", 30, 20, "2018-10-14", 14));
+        db.addCrop(new Crops("Tomato", 30, 20, "2018-10-04", 7));
+        db.addCrop(new Crops("Tomato", 30, 20, "2018-10-04", 7));
+        // Corn
+        db.addCrop(new Crops("Corn", 30, 20, "2018-10-04", 7));
+        // Pumpkin
+        db.addCrop(new Crops("Pumpkin", 30, 20, "2018-10-01", 12));
+        db.addCrop(new Crops("Pumpkin", 30, 20, "2018-10-12", 3));
+        // Strawberry
+        db.addCrop(new Crops("Strawberry", 30, 20, "2018-10-08", 8));
+        // Potato
+        db.addCrop(new Crops("Potato", 30, 20, "2018-09-29", 2));
+        db.addCrop(new Crops("Potato", 30, 20, "2018-09-29", 2));
+        db.addCrop(new Crops("Potato", 30, 20, "2018-09-29", 2));
+        // Onion
+        db.addCrop(new Crops("Onion", 30, 20, "2018-08-14", 67));
+        // Sunflower
+        db.addCrop(new Crops("Sunflower", 30, 20, "2018-08-39", 26));
+        db.addCrop(new Crops("Sunflower", 30, 20, "2018-09-29", 8));
+        // Wheat
+        db.addCrop(new Crops("Wheat", 30, 20, "2018-07-29", 63));
+        db.addCrop(new Crops("Wheat", 30, 20, "2018-07-29", 63));
+        db.addCrop(new Crops("Wheat", 30, 20, "2018-07-29", 63));
+        db.addCrop(new Crops("Wheat", 30, 20, "2018-07-29", 63));
+        // Carrot
+        db.addCrop(new Crops("Carrot", 30, 20, "2018-06-29", 81));
+        db.addCrop(new Crops("Carrot", 30, 20, "2018-06-29", 81));
+        db.addCrop(new Crops("Carrot", 30, 20, "2018-06-29", 81));
+        db.addCrop(new Crops("Carrot", 30, 20, "2018-06-29", 81));
+        db.addCrop(new Crops("Carrot", 30, 20, "2018-06-29", 81));
+        db.addCrop(new Crops("Carrot", 30, 20, "2018-06-29", 81));
+        db.addCrop(new Crops("Carrot", 30, 20, "2018-06-29", 81));
+        db.addCrop(new Crops("Carrot", 30, 20, "2018-06-29", 81));
+
+
+
 
         //insert weather
        // db.addWeather(new Weather("15", "20", "10", "25", "18/12/2018"));*/
