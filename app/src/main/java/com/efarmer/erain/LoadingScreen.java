@@ -43,18 +43,18 @@ public class LoadingScreen extends AppCompatActivity {
 
 
         //insert RecyclerPlants
-        db.addPlant(new Plants("Corn", "Aug-Nov", 381, 610, 50, 50, 10, 14, 77, 98));
+        db.addPlant(new Plants("corn", "Aug-Nov", 381, 610, 50, 50, 10, 14, 77, 98));
         db.addPlant(new Plants("Onions", "Sept-Nov", 550, 600, 25, 25, 7, 10, 100, 175));
         db.addPlant(new Plants("Potatoes", "Jan-Mar & Sept-Oct", 500, 700, 36, 36, 14, 28, 105, 140));
         db.addPlant(new Plants("Tomatoes", "Nov-Jan", 225, 450, 50, 50, 5, 10, 60, 70));
         db.addPlant(new Plants("Sunflowers", "Sept-Apr", 750, 870, 53, 53, 7, 10, 80, 120));
-        db.addPlant(new Plants("Wheat", "Feb-Mar", 460, 600, 42, 42, 7, 14, 70, 99));
+        db.addPlant(new Plants("wheat", "Feb-Mar", 460, 600, 42, 42, 7, 14, 70, 99));
         db.addPlant(new Plants("Carrots", "Sept-Apr", 132, 275, 5, 25, 14, 21, 70, 80));
-        db.addPlant(new Plants("Pumpkin", "Sept-Nov", 450, 670, 35, 35, 5, 10, 105, 140));
+        db.addPlant(new Plants("pumpkin", "Sept-Nov", 450, 670, 35, 35, 5, 10, 105, 140));
         db.addPlant(new Plants("Strawberries", "Nov-Dec", 200, 300, 38, 38, 14, 21, 42, 61));
 
         //insert RecyclerCrops
-        db.addCrop(new Crops("Corn", 30, 20, "2018-09-04", 7));
+        db.addCrop(new Crops("corn", 30, 20, "2018-09-04", 7));
 
         //insert weather
        // db.addWeather(new Weather("15", "20", "10", "25", "18/12/2018"));*/

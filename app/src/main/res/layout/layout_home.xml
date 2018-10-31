@@ -138,7 +138,7 @@
                 android:layout_marginTop="-275dp"
                 android:background="#7f7278"
                 android:scaleType="fitXY"
-                android:src="@mipmap/strawberry_img" />
+                android:src="@mipmap/strawberry" />
 
             <ImageButton
                 android:id="@+id/imgSeed2"
@@ -149,7 +149,7 @@
                 android:layout_marginTop="-275dp"
                 android:background="#7f7278"
                 android:scaleType="fitXY"
-                android:src="@mipmap/corn_img" />
+                android:src="@mipmap/corn" />
 
             <ImageButton
                 android:id="@+id/imgCrop3"
@@ -161,7 +161,7 @@
                 android:layout_marginEnd="13dp"
                 android:scaleType="fitXY"
                 android:background="#7f7278"
-                android:src="@mipmap/pumpkin_img" />
+                android:src="@mipmap/pumpkin" />
 
             <ImageButton
                 android:id="@+id/imgSeed1"
@@ -172,7 +172,7 @@
                 android:layout_marginBottom="12dp"
                 android:background="#7f7278"
                 android:scaleType="fitXY"
-                android:src="@mipmap/potato_img" />
+                android:src="@mipmap/potato" />
 
             <ImageButton
                 android:id="@+id/imgCrop2"
@@ -182,7 +182,7 @@
                 android:layout_alignTop="@+id/imgSeed1"
                 android:scaleType="fitXY"
                 android:background="#7f7278"
-                android:src="@mipmap/tomato_img" />
+                android:src="@mipmap/tomato" />
 
             <ImageButton
                 android:id="@+id/imgSeed3"
@@ -192,7 +192,7 @@
                 android:background="#7f7278"
                 android:layout_alignTop="@+id/imgSeed1"
                 android:scaleType="fitXY"
-                android:src="@mipmap/onion_img" />
+                android:src="@mipmap/onion" />
         </RelativeLayout>
 
         <RelativeLayout

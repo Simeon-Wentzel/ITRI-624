@@ -44,6 +44,36 @@ public class FragmentCrops extends Fragment {
             String weeklyH20TopUp = String.valueOf(c.getC_weeklyH2oTopUpReq());
             String plantDate = String.valueOf(c.getC_plantDate());
             String daysOld = String.valueOf(c.getC_daysOld());
+            int image = R.drawable.ic_add_black_24dp;
+            switch (name){
+                case "Carrots":
+                    image = R.mipmap.carrot;
+                    break;
+                case "corn":
+                    image = R.mipmap.corn;
+                    break;
+                case "wheat":
+                    image = R.mipmap.wheat;
+                    break;
+                case "Onions":
+                    image = R.mipmap.onion;
+                    break;
+                case "Potatoes":
+                    image = R.mipmap.potato;
+                    break;
+                case "pumpkin":
+                    image = R.mipmap.pumpkin;
+                    break;
+                case "Strawberries":
+                    image = R.mipmap.strawberry;
+                    break;
+                case "Sunflowers":
+                    image = R.mipmap.sunflower;
+                    break;
+                case "Tomatoes":
+                    image = R.mipmap.tomato;
+                    break;
+            }
 
             recyclerCropsList.add(
                     new RecyclerCrops(
@@ -52,7 +82,8 @@ public class FragmentCrops extends Fragment {
                             exptWeeklyRain,
                             weeklyH20TopUp,
                             plantDate,
-                            daysOld));
+                            daysOld,
+                            image));
         }
     }
 

@@ -1,16 +1,17 @@
 package com.efarmer.erain.CropsPackage;
 
 public class RecyclerCrops {
-    private int id;
+    private int id, image;
     private String name, exptWeeklyRain, topupH2O, plantedDate, daysOld;
 
-    public RecyclerCrops(int id, String name, String exptWeeklyRain, String topupH2O, String plantedDate, String daysOld){
+    public RecyclerCrops(int id, String name, String exptWeeklyRain, String topupH2O, String plantedDate, String daysOld, int image){
         this.id = id;
         this.name = name;
         this.exptWeeklyRain = exptWeeklyRain;
         this.topupH2O = topupH2O;
         this.plantedDate = plantedDate;
         this.daysOld = daysOld;
+        this.image = image;
     }
 
     public int getId() {
@@ -36,4 +37,6 @@ public class RecyclerCrops {
     public String getDaysOld() {
         return daysOld;
     }
+
+    public int getImage() { return  image; }
 }

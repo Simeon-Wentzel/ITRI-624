@@ -1,6 +1,7 @@
 package com.efarmer.erain.CropsPackage;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -45,6 +46,36 @@ public class FragmentPlants extends Fragment {
             String cropH20 = String.valueOf(p.getP_weeklyH2oCrop());
             String sproutETA = p.getP_etaSproutMin() + "~" + p.getP_etaSproutMax();
             String harvestETA = p.getP_ethMin() + "~" + p.getP_ethMax();
+            int image = R.drawable.ic_add_black_24dp;
+            switch (name){
+                case "Carrots":
+                    image = R.mipmap.carrot;
+                    break;
+                case "corn":
+                    image = R.mipmap.corn;
+                    break;
+                case "wheat":
+                    image = R.mipmap.wheat;
+                    break;
+                case "Onions":
+                    image = R.mipmap.onion;
+                    break;
+                case "Potatoes":
+                    image = R.mipmap.potato;
+                    break;
+                case "pumpkin":
+                    image = R.mipmap.pumpkin;
+                    break;
+                case "Strawberries":
+                    image = R.mipmap.strawberry;
+                    break;
+                case "Sunflowers":
+                    image = R.mipmap.sunflower;
+                    break;
+                case "Tomatoes":
+                    image = R.mipmap.tomato;
+                    break;
+            }
 
             recyclerPlantsList.add(
                     new RecyclerPlants(
@@ -55,7 +86,8 @@ public class FragmentPlants extends Fragment {
                             seedH20,
                             cropH20,
                             sproutETA,
-                            harvestETA));
+                            harvestETA,
+                            image));
         }
 
     }

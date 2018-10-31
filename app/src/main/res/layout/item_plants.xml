@@ -15,18 +15,19 @@
             android:padding="8dp">
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/imageViewPlant"
                 android:layout_width="120dp"
                 android:layout_height="90dp"
                 android:padding="4dp"
-                android:contentDescription="TODO" />
+                android:contentDescription="TODO"
+                android:src="@drawable/ic_add_black_24dp"/>
 
             <TextView
                 android:id="@+id/textViewTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
-                android:layout_toEndOf="@id/imageView"
+                android:layout_toEndOf="@id/imageViewPlant"
                 android:textSize="18sp"
                 android:text="PLANTS"
                 android:textStyle="bold"
@@ -41,7 +42,7 @@
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="5dp"
                 android:textSize="16sp"
-                android:layout_toEndOf="@id/imageView"
+                android:layout_toEndOf="@id/imageViewPlant"
                 android:text="13.3 Inch, 256 GB"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
 
@@ -52,8 +53,8 @@
                 android:layout_below="@id/textViewShortDesc"
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="5dp"
-                android:layout_toEndOf="@id/imageView"
-                android:background="@color/colorPrimary"
+                android:layout_toEndOf="@id/imageViewPlant"
+                android:background="@color/bitter_brown"
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp"
                 android:text="4.7"

@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.efarmer.erain.Crops;
@@ -41,10 +42,10 @@ public class CropsAdapter extends RecyclerView.Adapter<CropsAdapter.CropViewHold
         holder.textViewTitle.setText(recyclerCrops.getName());
         holder.textViewShortDesc.setText(recyclerCrops.getPlantedDate());
         holder.textViewRating.setText(String.valueOf(recyclerCrops.getDaysOld()));
-        // holder.textViewPrice.setText(String.valueOf(recyclerCrops.getPrice()));
+
 
         // Image
-        // holder.imageView.setImageDrawable(mCtx.getResources().getDrawable(product.getImage()));
+        holder.imageView.setImageDrawable(mCtx.getResources().getDrawable(recyclerCrops.getImage()));
 
     }
 
@@ -55,15 +56,16 @@ public class CropsAdapter extends RecyclerView.Adapter<CropsAdapter.CropViewHold
 
     class CropViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView textViewTitle, textViewShortDesc, textViewRating, textViewPrice;
+        private TextView textViewTitle, textViewShortDesc, textViewRating;
+        private ImageView imageView;
 
         public CropViewHolder(View view){
             super(view);
             textViewTitle = itemView.findViewById(R.id.textViewTitle);
             textViewShortDesc = itemView.findViewById(R.id.textViewShortDesc);
             textViewRating = itemView.findViewById(R.id.textViewRating);
-            //textViewPrice = itemView.findViewById(R.id.textViewPrice);
-            //imageView = itemView.findViewById(R.id.imageView);
+
+            imageView = itemView.findViewById(R.id.imageViewCrop);
         }
 
     }

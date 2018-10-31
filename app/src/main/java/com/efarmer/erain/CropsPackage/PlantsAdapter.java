@@ -2,8 +2,10 @@ package com.efarmer.erain.CropsPackage;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -51,16 +53,17 @@ public class PlantsAdapter extends RecyclerView.Adapter<PlantsAdapter.PlantViewH
                 TextView dialog_title = (TextView) myDialog.findViewById(R.id.txtTitle);
                 TextView dialog_subtitle = (TextView) myDialog.findViewById(R.id.txtSubtitle);
                 TextView dialog_information = (TextView) myDialog.findViewById(R.id.txtInformation);
-                ImageView dialog_plant_img = (ImageView) myDialog.findViewById(R.id.imgPlant);
+                ImageView dialog_plant_img = (ImageView) myDialog.findViewById(R.id.imageDialog);
 
                 // Create text for dialog population
                 String title = recyclerPlantsList.get(plantViewHolder.getAdapterPosition()).getTitle();
                 String subtitle = recyclerPlantsList.get(plantViewHolder.getAdapterPosition()).getSubtitle();
                 String information = recyclerPlantsList.get(plantViewHolder.getAdapterPosition()).getInformation();
+                int image = recyclerPlantsList.get(plantViewHolder.getAdapterPosition()).getImage();
                 dialog_title.setText(title);
                 dialog_subtitle.setText(subtitle);
                 dialog_information.setText(information);
-                //dialog_plant_img.setImageResource(recyclerPlantsList.get(plantViewHolder.getAdapterPosition()).getPhoto());
+                dialog_plant_img.setBackgroundResource(image);
 
                 //Toast.makeText(mCtx, "Test Click"+String.valueOf(plantViewHolder.getAdapterPosition()),Toast.LENGTH_SHORT).show();
                 myDialog.show();
@@ -80,10 +83,9 @@ public class PlantsAdapter extends RecyclerView.Adapter<PlantsAdapter.PlantViewH
         holder.textViewTitle.setText(recyclerPlants.getTitle());
         holder.textViewShortDesc.setText(recyclerPlants.getSubtitle());
         holder.textViewRating.setText(recyclerPlants.getHarvestETA()+" weeks");
-        //holder.textViewPrice.setText(recyclerPlants.getInformation());
 
         // Image
-        // holder.imageView.setImageDrawable(mCtx.getResources().getDrawable(product.getImage()));
+        holder.imageView.setImageDrawable(mCtx.getResources().getDrawable(recyclerPlants.getImage()));
 
     }
 
@@ -96,7 +98,8 @@ public class PlantsAdapter extends RecyclerView.Adapter<PlantsAdapter.PlantViewH
 
         private LinearLayout item_plant;
 
-        private TextView textViewTitle, textViewShortDesc, textViewRating, textViewPrice;
+        private TextView textViewTitle, textViewShortDesc, textViewRating;
+        private ImageView imageView;
 
         public PlantViewHolder(View view){
             super(view);
@@ -104,7 +107,7 @@ public class PlantsAdapter extends RecyclerView.Adapter<PlantsAdapter.PlantViewH
             textViewShortDesc = itemView.findViewById(R.id.textViewShortDesc);
             textViewRating = itemView.findViewById(R.id.textViewRating);
             //textViewPrice = itemView.findViewById(R.id.textViewPrice);
-            //imageView = itemView.findViewById(R.id.imageView);
+            imageView = itemView.findViewById(R.id.imageViewPlant);
 
             item_plant = (LinearLayout) itemView.findViewById(R.id.plant_item_id);
         }
