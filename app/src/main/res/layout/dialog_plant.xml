@@ -35,15 +35,22 @@
             android:textColor="@color/iorn_grey"
             android:textSize="18sp" />
 
-        <TextView
-            android:id="@+id/txtInformation"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="10dp"
-            android:text="Planting month"
-            android:textColor="@color/iorn_grey"
-            android:textSize="14sp" />
+            android:layout_height="100dp"
+            android:padding="5dp"
+
+            android:background="@color/iorn_grey">
+            <TextView
+                android:id="@+id/txtInformation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:textColor="#ff000000"
+                android:text="Planting month"
+                android:textSize="16sp" />
+        </ScrollView>
     </LinearLayout>
 
 <ImageView

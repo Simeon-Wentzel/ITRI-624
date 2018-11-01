@@ -61,7 +61,7 @@
                     android:layout_alignParentTop="true"
                     android:layout_marginStart="75dp"
                     android:layout_marginTop="205dp"
-                    app:srcCompat="@color/colorPrimaryDark" />
+                    app:srcCompat="@color/nandor_green" />
 
                 <TextView
                     android:id="@+id/textView"

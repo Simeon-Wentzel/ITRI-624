@@ -38,7 +38,7 @@ public class Pull_Weather extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-       /* precipitation = (TextView) findViewById(R.id.lblPrecipitationOutput);
+        /*precipitation = (TextView) findViewById(R.id.lblPrecipitationOutput);
         temperature = (TextView) findViewById(R.id.lblTemperature_TW);
         humidity = (TextView) findViewById(R.id.lblHumidityOutput);
         windSpeed = (TextView) findViewById(R.id.lblWindSpeedOutput);

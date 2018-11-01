@@ -56,14 +56,10 @@ public class PlantsAdapter extends RecyclerView.Adapter<PlantsAdapter.PlantViewH
                 ImageView dialog_plant_img = (ImageView) myDialog.findViewById(R.id.imageDialog);
 
                 // Create text for dialog population
-                String title = recyclerPlantsList.get(plantViewHolder.getAdapterPosition()).getTitle();
-                String subtitle = recyclerPlantsList.get(plantViewHolder.getAdapterPosition()).getSubtitle();
-                String information = recyclerPlantsList.get(plantViewHolder.getAdapterPosition()).getInformation();
-                int image = recyclerPlantsList.get(plantViewHolder.getAdapterPosition()).getImage();
-                dialog_title.setText(title);
-                dialog_subtitle.setText(subtitle);
-                dialog_information.setText(information);
-                dialog_plant_img.setBackgroundResource(image);
+                dialog_title.setText(recyclerPlantsList.get(plantViewHolder.getAdapterPosition()).getTitle());
+                dialog_subtitle.setText(recyclerPlantsList.get(plantViewHolder.getAdapterPosition()).getSubtitle());
+                dialog_information.setText(recyclerPlantsList.get(plantViewHolder.getAdapterPosition()).getInformation());
+                dialog_plant_img.setBackgroundResource(recyclerPlantsList.get(plantViewHolder.getAdapterPosition()).getImage());
 
                 //Toast.makeText(mCtx, "Test Click"+String.valueOf(plantViewHolder.getAdapterPosition()),Toast.LENGTH_SHORT).show();
                 myDialog.show();
