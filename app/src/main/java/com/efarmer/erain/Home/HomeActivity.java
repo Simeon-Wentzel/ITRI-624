@@ -37,6 +37,8 @@ import org.json.JSONObject;
 
 import darkSkyGson.Currently;
 
+import static java.lang.Math.round;
+
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -47,7 +49,7 @@ public class HomeActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
     private Gson gson;
     private String lat, lon;
-    private String URL = "https://api.darksky.net/forecast/5ef650b8d20db9df7d7a8c83e3a13af8/37.8267,-122.4233?exclude=minutely,hourly,daily,alerts,flags";
+    private String URL = "https://api.darksky.net/forecast/5ef650b8d20db9df7d7a8c83e3a13af8/-26.7145,27.0970?exclude=minutely,hourly,daily,alerts,flags";
     TextView precipitation, temperature;
 
     Currently currently = new Currently();
@@ -104,7 +106,8 @@ public class HomeActivity extends AppCompatActivity {
                             gson = gsonBuilder.create();
                             currently = gson.fromJson(response.getJSONObject("currently").toString(), Currently.class);
                             precipitation.setText(String.format("%s mm", currently.getPrecipIntensity()));
-                            temperature.setText(String.format("%s °F", currently.getTemperature()));
+                            temperature.setText(String.format("%s °C", round((currently.getTemperature() - 32) * 0.5555556 ), 2));
+                            //temperature.setText(String.format("%s °C", (((currently.getTemperature() - 32) * 0.5555556 ))));
                            /* humidity.setText(String.format("%s %%", currently.getHumidity()));
                             windSpeed.setText(String.format("%s km/h", currently.getWindSpeed()));*/
                         }catch (Exception e){
