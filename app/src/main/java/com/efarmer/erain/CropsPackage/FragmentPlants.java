@@ -51,10 +51,10 @@ public class FragmentPlants extends Fragment {
                 case "Carrots":
                     image = R.mipmap.carrot;
                     break;
-                case "corn":
+                case "Corn":
                     image = R.mipmap.corn;
                     break;
-                case "wheat":
+                case "Wheat":
                     image = R.mipmap.wheat;
                     break;
                 case "Onions":
@@ -63,7 +63,7 @@ public class FragmentPlants extends Fragment {
                 case "Potatoes":
                     image = R.mipmap.potato;
                     break;
-                case "pumpkin":
+                case "Pumpkins":
                     image = R.mipmap.pumpkin;
                     break;
                 case "Strawberries":

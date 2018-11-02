@@ -26,7 +26,6 @@ public class StatsAdapter extends RecyclerView.Adapter<StatsAdapter.StatsViewHol
     private Context mCtx;
     //Store all the crops in a list
     private List<RecyclerStats> recyclerStatsList;
-    Dialog myDialog;
 
     public StatsAdapter(Context mCtx, List<RecyclerStats> statsList){
         this.mCtx = mCtx;
@@ -39,9 +38,7 @@ public class StatsAdapter extends RecyclerView.Adapter<StatsAdapter.StatsViewHol
         LayoutInflater inflater = LayoutInflater.from(mCtx);
         View view = inflater.inflate(R.layout.item_stats, parent,false);
         final StatsAdapter.StatsViewHolder statsViewHolder = new StatsAdapter.StatsViewHolder(view);
-
-
-
+        StatsViewHolder cropViewHolder = new StatsViewHolder(view);
         return statsViewHolder;
     }
 
@@ -51,10 +48,29 @@ public class StatsAdapter extends RecyclerView.Adapter<StatsAdapter.StatsViewHol
         //getting the product of the specified position
         RecyclerStats recyclerStats = recyclerStatsList.get(position);
 
-        RecyclerStats statInfo = new RecyclerStats();
-        String stats = statInfo.getStatsInfo();
+
+        int mySeason = recyclerStats.isSeasonal();
+        String isSeason = "Yes";
+        if (mySeason == 1){
+            isSeason = "Yes" ;
+        }
+        else{
+            isSeason = "No" ;
+        }
+
+        //binding the data with the viewholder views
+        holder.textViewTitle.setText(recyclerStats.getName());
+        holder.textViewShortDesc.setText("Nearing harvest: " + String.valueOf(recyclerStats.getCrops_nearing_harvest())
+                +"\n" + "Crops vegetating: " + String.valueOf(recyclerStats.getCrops_vegatating())
+                + "\n" + "Crops sprouting: " + String.valueOf(recyclerStats.getCrops_sprouting()));
+        holder.textViewRating.setText("In season: " + isSeason);
+
+
+        // Image
+        holder.imageView.setImageDrawable(mCtx.getResources().getDrawable(recyclerStats.getImage()));
 
     }
+
 
     @Override
     public int getItemCount() {
@@ -63,15 +79,27 @@ public class StatsAdapter extends RecyclerView.Adapter<StatsAdapter.StatsViewHol
 
     class StatsViewHolder extends RecyclerView.ViewHolder {
 
-        private LinearLayout item_stats;
+        //private LinearLayout item_stats;
 
-        private TextView textViewStats;
+        //private TextView textViewStats;
+
+        //public StatsViewHolder(View view){
+        //    super(view);
+        //    item_stats = (LinearLayout) itemView.findViewById(R.id.item_stats);
+        //    textViewStats = itemView.findViewById(R.id.txtStats);
+//
+        //}
+
+        private TextView textViewTitle, textViewShortDesc, textViewRating;
+        private ImageView imageView;
 
         public StatsViewHolder(View view){
             super(view);
-            item_stats = (LinearLayout) itemView.findViewById(R.id.item_stats);
-            textViewStats = itemView.findViewById(R.id.txtStats);
+            textViewTitle = itemView.findViewById(R.id.textViewTitle);
+            textViewShortDesc = itemView.findViewById(R.id.textViewShortDesc);
+            textViewRating = itemView.findViewById(R.id.textViewRating);
 
+            imageView = itemView.findViewById(R.id.imageViewCrop);
         }
 
     }

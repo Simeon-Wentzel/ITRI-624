@@ -100,14 +100,14 @@ public class LoginActivity extends AppCompatActivity {
         boolean isInputValid = true; // will be invalidated by any incorrect input
 
         if (!TextUtils.isEmpty(password) && !TextUtils.isEmpty(email)) {
-            Toast.makeText(context, "Email or password field is incorrect.", Toast.LENGTH_SHORT).show();
+            // Toast.makeText(context, "Email or password field is incorrect.", Toast.LENGTH_SHORT).show();
             isInputValid = false;
         }
 
         Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(email);
         boolean isValidEmail = matcher.find();
         if (!TextUtils.isEmpty(email) && (!isValidEmail)) {
-            txtEmail.setError("e-Mail address is invalid");
+            txtEmail.setError("Email address is invalid");
             isInputValid = false;
         }
 

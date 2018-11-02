@@ -64,11 +64,11 @@ public class RecyclerPlants {
 
     public String getInformation() {
 
-        String information =    "Min & max H20: "+getGeneralH2O()+"\n"+
-                "Weekly H20 when sprouting: "+getSeedH20()+"\n"+
-                "Weekly H20 when vegatating: "+getCropH20()+"\n"+
-                "Estimated weeks until germinatation: "+getSproutETA()+"\n"+
-                "Estimated weeks until harvest: "+getHarvestETA()+"\n";
+        String information =    "Min & max H20 over lifetime: "+"\n"+getGeneralH2O()+" mm.\n"+
+                "Average weekly H20 when sprouting: "+"\n"+getSeedH20()+" ml.\n"+
+                "Average weekly H20 when vegatating: "+"\n"+getCropH20()+" ml.\n"+
+                "Estimated time until germinatation: "+"\n"+getSproutETA()+" days\n"+
+                "Estimated time until harvest: "+"\n"+getHarvestETA()+" days\n";
         return information;
     }
 }

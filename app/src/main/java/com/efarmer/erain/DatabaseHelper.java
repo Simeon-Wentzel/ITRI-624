@@ -223,6 +223,19 @@ public class DatabaseHelper extends SQLiteOpenHelper
         return userList;
     }
 
+    //Get all RecyclerPlants method
+    public void deleteAllUsers() {
+        SQLiteDatabase u_db = this.getWritableDatabase();
+        List<User> userList = new ArrayList<>();
+        userList = getAllUsers();
+
+        for (User u : userList) {
+            int id = u.getU_id();
+            u_db.delete(TABLE_USER, KEY_ID + "=?", new String[]{String.valueOf(id)});
+        }
+        u_db.close();
+    }
+
     //Update User by id method
     public int updateUser(User user) {
 
@@ -335,6 +348,20 @@ public class DatabaseHelper extends SQLiteOpenHelper
         return plantsList;
     }
 
+    //Delete all plants method
+    public void deleteAllPlants() {
+        SQLiteDatabase p_db = this.getWritableDatabase();
+        List<Plants> plantsList = new ArrayList<>();
+        plantsList = getAllPlants();
+
+        for (Plants p : plantsList) {
+            int id = p.getP_id();
+            p_db.delete(TABLE_PLANTS, KEY_P_ID + "=?", new String[]{String.valueOf(id)});
+        }
+        p_db.close();
+    }
+
+
     //Update RecyclerPlants by id method
     public int updatePlant(Plants plants) {
         SQLiteDatabase p_db = this.getWritableDatabase();
@@ -433,6 +460,20 @@ public class DatabaseHelper extends SQLiteOpenHelper
         return cropsList;
     }
 
+
+    //delete all crops method
+    public void deleteAllCrops() {
+        SQLiteDatabase c_db = this.getWritableDatabase();
+        List<Crops> cropsList = new ArrayList<>();
+        cropsList = getAllCrops();
+
+        for (Crops c : cropsList) {
+            int id = c.getC_id();
+            c_db.delete(TABLE_CROPS, KEY_C_ID + "=?", new String[]{String.valueOf(id)});
+        }
+        c_db.close();
+    }
+
     //Update RecyclerCrops by id method
     public int updateCrops(Crops crops) {
         SQLiteDatabase c_db = this.getWritableDatabase();
@@ -523,6 +564,19 @@ public class DatabaseHelper extends SQLiteOpenHelper
         }
 
         return weatherList;
+    }
+
+    //delete all crops method
+    public void deleteAllWeatherEntries() {
+        SQLiteDatabase w_db = this.getWritableDatabase();
+        List<Weather> weatherList = new ArrayList<>();
+        weatherList = getAllWeatherEntries();
+
+        for (Weather w : weatherList) {
+            int id = w.getW_id();
+            w_db.delete(TABLE_WEATHER, KEY_W_ID + "=?", new String[]{String.valueOf(id)});
+        }
+        w_db.close();
     }
 
     //Update Weather by id method

@@ -40,8 +40,8 @@ public class CropsAdapter extends RecyclerView.Adapter<CropsAdapter.CropViewHold
 
         //binding the data with the viewholder views
         holder.textViewTitle.setText(recyclerCrops.getName());
-        holder.textViewShortDesc.setText(recyclerCrops.getPlantedDate());
-        holder.textViewRating.setText(String.valueOf(recyclerCrops.getDaysOld()));
+        holder.textViewShortDesc.setText("Date planted: " + recyclerCrops.getPlantedDate());
+        holder.textViewRating.setText("Days old: " + String.valueOf(recyclerCrops.getDaysOld()));
 
 
         // Image

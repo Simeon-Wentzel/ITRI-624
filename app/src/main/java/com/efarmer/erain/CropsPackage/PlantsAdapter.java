@@ -57,7 +57,7 @@ public class PlantsAdapter extends RecyclerView.Adapter<PlantsAdapter.PlantViewH
 
                 // Create text for dialog population
                 dialog_title.setText(recyclerPlantsList.get(plantViewHolder.getAdapterPosition()).getTitle());
-                dialog_subtitle.setText(recyclerPlantsList.get(plantViewHolder.getAdapterPosition()).getSubtitle());
+                dialog_subtitle.setText("Seasonal: " + recyclerPlantsList.get(plantViewHolder.getAdapterPosition()).getSubtitle());
                 dialog_information.setText(recyclerPlantsList.get(plantViewHolder.getAdapterPosition()).getInformation());
                 dialog_plant_img.setBackgroundResource(recyclerPlantsList.get(plantViewHolder.getAdapterPosition()).getImage());
 
@@ -77,8 +77,8 @@ public class PlantsAdapter extends RecyclerView.Adapter<PlantsAdapter.PlantViewH
 
         //binding the data with the viewholder views
         holder.textViewTitle.setText(recyclerPlants.getTitle());
-        holder.textViewShortDesc.setText(recyclerPlants.getSubtitle());
-        holder.textViewRating.setText(recyclerPlants.getHarvestETA()+" weeks");
+        holder.textViewShortDesc.setText("Seasonal: " + recyclerPlants.getSubtitle());
+        holder.textViewRating.setText("Harvest ETA: " + recyclerPlants.getHarvestETA()+" weeks");
 
         // Image
         holder.imageView.setImageDrawable(mCtx.getResources().getDrawable(recyclerPlants.getImage()));
